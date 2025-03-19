@@ -42,7 +42,7 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun WakerMainScreen() {
-    var text by rememberSaveable { mutableStateOf("") } // speichert eingabe
+    var text by rememberSaveable { mutableStateOf("") } // speichert text eingabe
     Column(
         modifier = Modifier
             .fillMaxSize()
