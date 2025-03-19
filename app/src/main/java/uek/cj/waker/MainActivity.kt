@@ -23,7 +23,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize()
                 ) { innerPadding ->
 
-                    MainScreen(
+                    WakerMainScreen(
                         name = "Waker", modifier = Modifier.padding(innerPadding)
                     )
                 }
@@ -33,7 +33,7 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun MainScreen(name: String, modifier: Modifier = Modifier) {
+fun WakerMainScreen(name: String, modifier: Modifier = Modifier) {
     Text(
         text = "$name APP!", modifier = modifier
     )
@@ -41,8 +41,8 @@ fun MainScreen(name: String, modifier: Modifier = Modifier) {
 
 @Preview(showBackground = true)
 @Composable
-fun MainScreenPreview() {
+fun WakerMainScreenPreview() {
     WakerTheme {
-        MainScreen("Waker")
+        WakerMainScreen("Waker")
     }
 }
