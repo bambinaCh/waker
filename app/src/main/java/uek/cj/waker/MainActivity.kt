@@ -34,7 +34,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge() // vollbildmodus aktivieren
         setContent { // legt ui fest
             WakerTheme { // app design
-                WakerMainScreen()
+                WakerMainScreen() //hauptseite
             }
         }
     }
