@@ -47,8 +47,7 @@ fun WakerMainScreen() {
         topBar = {
             TopAppBar(
                 title = { Text("Wakers") },
-                navigationIcon = {
-                    Icon(Icons.Default.AccessTime, contentDescription = "Uhr Symbol")
+                navigationIcon = { Icon(Icons.Default.AccessTime, contentDescription = "Uhr Symbol")
                 }
             )
         },
