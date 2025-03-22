@@ -9,9 +9,14 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Add
 import androidx.compose.material3.Button
+import androidx.compose.material3.Icon
 import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -28,8 +33,8 @@ import uek.cj.waker.ui.theme.WakerTheme
 * - listOf<Alarm> :https://developer.android.com/develop/ui/compose/state?hl=de
 * - Floating Button: https://developer.android.com/develop/ui/compose/quick-guides/content/create-floating-action-button?hl=de
 *                    https://github.com/android/snippets/blob/a7117c0da26b85a9e005d700a7ae9dec859bb8bd/compose/snippets/src/main/java/com/example/compose/snippets/components/FloatingActionButton.kt#L61-L68
-*
-*
+*                    https://www.youtube.com/watch?v=V4IxattGNJY
+* - Scaffold: https://developer.android.com/develop/ui/compose/quick-guides/content/create-scaffold?hl=de
 *
 * */
 
@@ -38,12 +43,15 @@ import uek.cj.waker.ui.theme.WakerTheme
 fun WakerMainScreen() {
     var alarms by rememberSaveable { mutableStateOf(listOf<Alarm>()) } // speichert alarm objekte
 
-    Scaffold(
-        NewAlarmButton(onClick = {
-            //neue alarm funktion
-        }) {
-            Icon(Icons.Filled.Add, "Neue Alarm hinzufügen.")
-        }
+    Scaffold( // jet compose composable
+        topBar = {
+            TopAppBar(
+                title = { Text("Wakers") },
+                navigationIcon = {
+                    Icon(Icons.Default.AccessTime, contentDescription = "Uhr Symbol")
+                }
+            )
+        },
     ) { innerPadding ->
 
         Column(
