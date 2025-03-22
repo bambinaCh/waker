@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
+import androidx.compose.material.icons.filled.AccessTime
 import androidx.compose.material3.Button
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
@@ -44,19 +45,29 @@ import uek.cj.waker.ui.theme.WakerTheme
 fun WakerMainScreen() {
     var alarms by rememberSaveable { mutableStateOf(listOf<Alarm>()) } // speichert alarm objekte
 
-    Scaffold( // jet compose composable gerüst
-        topBar = { //jet compose composable Teil
-            TopAppBar(
-                title = { Text("Wakers") },
-                navigationIcon = { Icon(Icons.Default.AccessTime, contentDescription = "Uhr Symbol")
+    Scaffold( //jet compose composable gerüst
+        topBar = { //jet compose composable Parameter
+            TopAppBar(//jet compose composable
+                title = { //slot für titel
+                    Text("Wakers") // composable funktion ui element
+                        },
+                navigationIcon = { //slot für Icon
+                    Icon( //ui element
+                        Icons.Default.AccessTime, // compose icons library,icon Uhr
+                        contentDescription = "Uhr Symbol"
+                    )
                 }
             )
         },
-        floatingActionButton = {//jet compose composable Teil
-            FloatingActionButton(onClick = { //
-                alarms = alarms + Alarm("00:00") //
+        floatingActionButton = { //jet compose composable Teil
+            FloatingActionButton( //Composable Button von Android Compose
+                onClick = { //klick Function
+                alarms = alarms + Alarm("00:00") //mit claas alarm
             }) {
-                Icon(Icons.Filled.Add, contentDescription = "Neuen Alarm hinzufügen")
+                Icon( //composable funktion ui element
+                    Icons.Filled.Add, // compose icons library, Add (+) icon
+                    contentDescription = "Neuen Alarm hinzufügen"
+                )
             }
         }
     ) { innerPadding ->
