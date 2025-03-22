@@ -12,6 +12,7 @@ import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material3.Button
+import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
@@ -43,17 +44,24 @@ import uek.cj.waker.ui.theme.WakerTheme
 fun WakerMainScreen() {
     var alarms by rememberSaveable { mutableStateOf(listOf<Alarm>()) } // speichert alarm objekte
 
-    Scaffold( // jet compose composable
-        topBar = {
+    Scaffold( // jet compose composable gerüst
+        topBar = { //jet compose composable Teil
             TopAppBar(
                 title = { Text("Wakers") },
                 navigationIcon = { Icon(Icons.Default.AccessTime, contentDescription = "Uhr Symbol")
                 }
             )
         },
+        floatingActionButton = {//jet compose composable Teil
+            FloatingActionButton(onClick = { //
+                alarms = alarms + Alarm("00:00") //
+            }) {
+                Icon(Icons.Filled.Add, contentDescription = "Neuen Alarm hinzufügen")
+            }
+        }
     ) { innerPadding ->
 
-        Column(
+        /*Column(
             modifier = Modifier
                 .fillMaxSize()
                 .padding(16.dp),
@@ -78,7 +86,7 @@ fun WakerMainScreen() {
             ) {
                 Text("here to be press")
             }
-        }
+        }*/
     }
 
 }
