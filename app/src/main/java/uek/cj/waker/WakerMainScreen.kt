@@ -23,6 +23,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.AlertDialog
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -47,9 +48,10 @@ import uek.cj.waker.ui.theme.WakerTheme
 * - Exp. Material    https://developer.android.com/reference/kotlin/androidx/compose/material3/ExperimentalMaterial3Api
 * - Dialog:          https://developer.android.com/develop/ui/views/components/dialogs?hl=de
 *                    https://blog.kotlin-academy.com/dialogs-in-jetpack-compose-2b7f72b14651
-* - Al.D. Button:    https://www.youtube.com/watch?v=gtxWnkUPhwU
+* - Al.Di. Button:   https://www.youtube.com/watch?v=gtxWnkUPhwU
 *                    https://blog.kotlin-academy.com/dialogs-in-jetpack-compose-2b7f72b14651
-* - Git Ignore:      https://github.com/github/gitignore/blob/main/Android.gitignore
+*                    https://www.youtube.com/watch?v=XI35XG1rECs
+*  - Git Ignore:      https://github.com/github/gitignore/blob/main/Android.gitignore
 *
 * */
 
@@ -114,7 +116,7 @@ fun WakerMainScreenPreview() {
     }
 }
 
-
+@Composable
 fun AddAlarmDialog( // funtion für pop up wecker erstellen
     onDismiss: () -> Unit,
     onConfirm: (String) -> Unit
@@ -126,7 +128,8 @@ fun AddAlarmDialog( // funtion für pop up wecker erstellen
             onDismiss()
         },
         confirmButton = { //jet compose funktion
-            Button(onClick = {
+            Button(
+                onClick = {
                 onConfirm(input)
                 onDismiss()
             }) {
@@ -134,8 +137,11 @@ fun AddAlarmDialog( // funtion für pop up wecker erstellen
             }
         },
         dismissButton = { //jet compose funktion
-            Button(onClick = { onDismiss() }) {
-                Text("Abbrechen")
+            Button(
+                onClick = {
+                    onDismiss()
+                }) {
+                    Text("Abbrechen")
             }
         },
 
