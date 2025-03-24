@@ -24,6 +24,8 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.AlertDialog
+import androidx.compose.material3.TimePicker
+import androidx.compose.material3.rememberTimePickerState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -35,6 +37,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import uek.cj.waker.model.Alarm
 import uek.cj.waker.ui.theme.WakerTheme
+import java.util.Calendar
 
 
 
@@ -52,6 +55,7 @@ import uek.cj.waker.ui.theme.WakerTheme
 *                    https://blog.kotlin-academy.com/dialogs-in-jetpack-compose-2b7f72b14651
 *                    https://www.youtube.com/watch?v=XI35XG1rECs
 *                    https://www.youtube.com/watch?v=5u917TZkwvI
+* - Dialog Z-Auswhl: https://developer.android.com/develop/ui/compose/components/time-pickers-dialogs?hl=de
 * - Git Ignore:      https://github.com/github/gitignore/blob/main/Android.gitignore
 * - Number Picker:   https://stackoverflow.com/questions/75306878/how-can-i-make-a-number-picker-in-jetpack-compose
 *                    https://github.com/ChargeMap/Compose-NumberPicker
@@ -138,8 +142,14 @@ fun AddAlarmDialog( // funktion für pop up wecker erstellen
     onDismiss: () -> Unit,
     onConfirm: (String) -> Unit
 ) {
-    var selectedHour by rememberSaveable { mutableStateOf("") } // variabe speichert alarm input -Stunde
-    var selectedMinute by rememberSaveable { mutableStateOf("") } // variabe speichert alarm input -Minute
+    val currentTime = Calendar.getInstance() //value zeigt aktuelle zeit. Compose funktion
+
+    val timePickerState = rememberTimePickerState( //value auswahl Inpput für alarm. Compose funktion
+        initialHour = currentTime.get(Calendar.HOUR_OF_DAY),
+        initialMinute = currentTime.get(Calendar.MINUTE),
+        is24Hour = true
+    )
+
     AlertDialog(
         onDismissRequest = { //jet compose Funktion (blog Kotlin)
             onDismiss()
