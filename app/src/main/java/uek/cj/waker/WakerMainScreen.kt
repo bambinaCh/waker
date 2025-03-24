@@ -38,10 +38,11 @@ import uek.cj.waker.ui.theme.WakerTheme
 
 
 /*Quelle
+* - General Infos:   https://www.youtube.com/watch?v=V4IxattGNJY
 * - listOf<Alarm>:   https://developer.android.com/develop/ui/compose/state?hl=de
 * - Floating Button: https://developer.android.com/develop/ui/compose/components/fab?hl=de
 *                    https://github.com/android/snippets/blob/a7117c0da26b85a9e005d700a7ae9dec859bb8bd/compose/snippets/src/main/java/com/example/compose/snippets/components/FloatingActionButton.kt#L61-L68
-*                    https://www.youtube.com/watch?v=V4IxattGNJY
+*
 * - Scaffold:        https://developer.android.com/develop/ui/compose/quick-guides/content/create-scaffold?hl=de
 * - Exp. Material    https://developer.android.com/reference/kotlin/androidx/compose/material3/ExperimentalMaterial3Api
 * - Dialog:          https://developer.android.com/develop/ui/views/components/dialogs?hl=de
