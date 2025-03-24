@@ -82,7 +82,7 @@ fun WakerMainScreen() {
             verticalArrangement = Arrangement.Center //jet compose funktion
         ) {
             if (alarms.isEmpty()) { // IF ELSE funktion um alarms zu rufen
-                Text("Keine Alarme gesetzt.")
+                Text("Keine Wakers gesetzt.")
             } else {
                 for (alarm in alarms) {
                     Text("alarm.time")
