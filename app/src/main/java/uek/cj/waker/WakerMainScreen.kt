@@ -59,8 +59,12 @@ import java.util.Calendar
 * - Git Ignore:      https://github.com/github/gitignore/blob/main/Android.gitignore
 * - Number Picker:   https://stackoverflow.com/questions/75306878/how-can-i-make-a-number-picker-in-jetpack-compose
 *                    https://github.com/ChargeMap/Compose-NumberPicker
-*
-*
+* - Time:            https://www.geeksforgeeks.org/time-picker-in-android-using-jetpack-compose/
+*                    https://stackoverflow.com/questions/75968843/jetpack-compose-format-date-string
+*                    https://www.youtube.com/watch?v=EN9HtxsUe3A
+*                    https://stackoverflow.com/questions/73332937/what-would-be-the-most-lightweight-way-to-observe-current-time-for-a-an-androi
+*                    https://medium.com/mobile-innovation-network/date-formatting-in-compose-multiplatform-a-comprehensive-guide-bb059730afdc
+* - Time %           https://medium.com/@TippuFisalSheriff/creating-a-timer-screen-with-kotlin-and-jetpack-compose-in-android-f7c56952d599
 * */
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -157,7 +161,7 @@ fun AddAlarmDialog( // funktion für pop up wecker erstellen
         confirmButton = { //jet compose funktion um alarm zu speichern
             Button(
                 onClick = {
-                    val time = "%02d:%02d".format(timePickerState.hour, timePickerState.minute)
+                    val time = "%02d:%02d".format(timePickerState.hour, timePickerState.minute) //Alarm value 2 stellig formatiert
                 onConfirm(time)
                 onDismiss()
             }) {
