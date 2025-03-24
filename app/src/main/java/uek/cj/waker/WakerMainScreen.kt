@@ -81,28 +81,16 @@ fun WakerMainScreen() {
                 .padding(16.dp),
             verticalArrangement = Arrangement.Center
         ) {
-            Text(
-                text = "",
-                modifier = Modifier.fillMaxWidth()
-            )
-
-            Spacer(modifier = Modifier.height(8.dp))
-
-
-
-            Spacer(modifier = Modifier.height(16.dp))
-
-            Button(
-                onClick = {
-
-                },
-                modifier = Modifier.fillMaxWidth()
-            ) {
-                Text("here to be press")
+            if (alarms.isEmpty()) {
+                Text("Keine Alarme gesetzt.")
+            } else {
+                for (alarm in alarms) {
+                    Text("${alarm.time}")
+                    Spacer(modifier = Modifier.height(8.dp))
+                }
             }
         }
     }
-
 }
 
 @Preview(showBackground = true)
