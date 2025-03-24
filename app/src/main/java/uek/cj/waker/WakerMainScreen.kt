@@ -46,6 +46,7 @@ import uek.cj.waker.ui.theme.WakerTheme
 * - Scaffold:        https://developer.android.com/develop/ui/compose/quick-guides/content/create-scaffold?hl=de
 * - Exp. Material    https://developer.android.com/reference/kotlin/androidx/compose/material3/ExperimentalMaterial3Api
 * - Dialog:          https://developer.android.com/develop/ui/views/components/dialogs?hl=de
+*                     https://blog.kotlin-academy.com/dialogs-in-jetpack-compose-2b7f72b14651
 * - Git Ignore:      https://github.com/github/gitignore/blob/main/Android.gitignore
 *
 * */
@@ -109,4 +110,13 @@ fun WakerMainScreenPreview() {
     WakerTheme {
         WakerMainScreen()
     }
+}
+
+
+fun AddAlarmDialog( // funtion für pop up wecker erstellen
+    onDismiss: () -> Unit,
+    onConfirm: (String) -> Unit
+) {
+    var input by rememberSaveable { mutableStateOf("") } // variabe speichert alarm input
+
 }
