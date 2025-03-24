@@ -35,18 +35,21 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 
 
 /*Quelle
-* - listOf<Alarm> :https://developer.android.com/develop/ui/compose/state?hl=de
+* - listOf<Alarm>:   https://developer.android.com/develop/ui/compose/state?hl=de
 * - Floating Button: https://developer.android.com/develop/ui/compose/quick-guides/content/create-floating-action-button?hl=de
 *                    https://github.com/android/snippets/blob/a7117c0da26b85a9e005d700a7ae9dec859bb8bd/compose/snippets/src/main/java/com/example/compose/snippets/components/FloatingActionButton.kt#L61-L68
 *                    https://www.youtube.com/watch?v=V4IxattGNJY
 * - Scaffold:        https://developer.android.com/develop/ui/compose/quick-guides/content/create-scaffold?hl=de
 * - Exp. Material    https://developer.android.com/reference/kotlin/androidx/compose/material3/ExperimentalMaterial3Api
+* - Dialog:         https://developer.android.com/develop/ui/views/components/dialogs?hl=de
+*
 * */
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun WakerMainScreen() {
-    var alarms by rememberSaveable { mutableStateOf(listOf<Alarm>()) } // speichert alarm objekte
+    var alarms by rememberSaveable { mutableStateOf(listOf<Alarm>()) } // variabe speichert alarm objekte
+    var showDialog by rememberSaveable { mutableStateOf(false) } // variable und state für pop up
 
     Scaffold( //jet compose composable gerüst
         topBar = { //jet compose composable Parameter
