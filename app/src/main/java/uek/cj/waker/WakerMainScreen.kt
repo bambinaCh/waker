@@ -68,7 +68,7 @@ fun WakerMainScreen() {
         floatingActionButton = { //jet compose composable Teil
             FloatingActionButton( //Composable Button von Android Compose
                 onClick = { //klick Function
-                alarms = alarms + Alarm("00:00") //mit claas alarm
+                showDialog = true //mit claas alarm
             }) {
                 Icon( //composable funktion ui element
                     Icons.Filled.Add, // compose icons library, Add (+) icon
