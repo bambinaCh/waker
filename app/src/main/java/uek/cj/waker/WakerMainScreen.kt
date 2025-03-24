@@ -75,17 +75,17 @@ fun WakerMainScreen() {
         }
     ) { innerPadding ->
 
-        Column(
-            modifier = Modifier
-                .fillMaxSize()
+        Column( //composable funktion ui element
+            modifier = Modifier //jet compose funktion
+                .fillMaxSize() //attribute
                 .padding(16.dp),
-            verticalArrangement = Arrangement.Center
+            verticalArrangement = Arrangement.Center //jet compose funktion
         ) {
-            if (alarms.isEmpty()) {
+            if (alarms.isEmpty()) { // IF ELSE funktion um alarms zu rufen
                 Text("Keine Alarme gesetzt.")
             } else {
                 for (alarm in alarms) {
-                    Text("${alarm.time}")
+                    Text("alarm.time")
                     Spacer(modifier = Modifier.height(8.dp))
                 }
             }
