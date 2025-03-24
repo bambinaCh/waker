@@ -59,11 +59,11 @@ import uek.cj.waker.ui.theme.WakerTheme
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun WakerMainScreen() {
-    var alarms by rememberSaveable { mutableStateOf(listOf<Alarm>()) } // variabe speichert alarm objekte
-    var showDialog by rememberSaveable { mutableStateOf(false) } // variable und state für pop up
+    var alarms by rememberSaveable { mutableStateOf(listOf<Alarm>()) } // variabe verwaltet und speichert alle alarms
+    var showDialog by rememberSaveable { mutableStateOf(false) } // variable steuerung für pop up
 
     Scaffold( //jet compose composable gerüst
-        topBar = { //jet compose composable Parameter
+        topBar = { //jet compose composable Parameter Leiste mit titel
             TopAppBar(//jet compose composable
                 title = { //slot für titel
                     Text("Wakers") // composable funktion ui element
@@ -77,7 +77,7 @@ fun WakerMainScreen() {
             )
         },
         floatingActionButton = { //jet compose composable Teil
-            LargeFloatingActionButton( //Composable Button von Android Compose
+            LargeFloatingActionButton( //Composable Button von Android Compose alamr hinzufügen
                 onClick = { //klick Function
                     showDialog = true //mit claas alarm
                 },
@@ -89,7 +89,7 @@ fun WakerMainScreen() {
                 )
             }
         }
-    ) { innerPadding ->
+    ) { innerPadding -> //Hauptinhalt (liste der Wakers)
 
         Column( //composable funktion ui element
             modifier = Modifier //jet compose funktion
@@ -107,7 +107,7 @@ fun WakerMainScreen() {
             }
         }
 
-        if (showDialog) { //If funktion für Dialog
+        if (showDialog) { //If funktion für aktive Dialog
             AddAlarmDialog( //AddAlarmDialog composable aufrufen
                 onDismiss = { //compose funktion
                     showDialog = false
@@ -130,7 +130,7 @@ fun WakerMainScreenPreview() {
     }
 }
 
-@Composable
+@Composable // Composable funktion für dialog (Neue Alarm)
 fun AddAlarmDialog( // funtion für pop up wecker erstellen
     onDismiss: () -> Unit,
     onConfirm: (String) -> Unit
