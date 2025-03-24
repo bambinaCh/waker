@@ -46,7 +46,9 @@ import uek.cj.waker.ui.theme.WakerTheme
 * - Scaffold:        https://developer.android.com/develop/ui/compose/quick-guides/content/create-scaffold?hl=de
 * - Exp. Material    https://developer.android.com/reference/kotlin/androidx/compose/material3/ExperimentalMaterial3Api
 * - Dialog:          https://developer.android.com/develop/ui/views/components/dialogs?hl=de
-*                     https://blog.kotlin-academy.com/dialogs-in-jetpack-compose-2b7f72b14651
+*                    https://blog.kotlin-academy.com/dialogs-in-jetpack-compose-2b7f72b14651
+* - Al.D. Button:    https://www.youtube.com/watch?v=gtxWnkUPhwU
+*                    https://blog.kotlin-academy.com/dialogs-in-jetpack-compose-2b7f72b14651
 * - Git Ignore:      https://github.com/github/gitignore/blob/main/Android.gitignore
 *
 * */
@@ -119,4 +121,23 @@ fun AddAlarmDialog( // funtion für pop up wecker erstellen
 ) {
     var input by rememberSaveable { mutableStateOf("") } // variabe speichert alarm input
 
+    AlertDialog(
+        onDismissRequest = { //jet compose Funktion (blog Kotlin)
+            onDismiss()
+        },
+        confirmButton = { //jet compose funktion
+            Button(onClick = {
+                onConfirm(input)
+                onDismiss()
+            }) {
+                Text("OK")
+            }
+        },
+        dismissButton = { //jet compose funktion
+            Button(onClick = { onDismiss() }) {
+                Text("Abbrechen")
+            }
+        },
+
+    )
 }
