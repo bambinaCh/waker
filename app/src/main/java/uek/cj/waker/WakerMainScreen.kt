@@ -38,7 +38,7 @@ import uek.cj.waker.ui.theme.WakerTheme
 
 
 
-/*Quelle
+/* Quelle
 * - General Infos:   https://www.youtube.com/watch?v=V4IxattGNJY
 * - listOf<Alarm>:   https://developer.android.com/develop/ui/compose/state?hl=de
 * - Floating Button: https://developer.android.com/develop/ui/compose/components/fab?hl=de
@@ -52,7 +52,10 @@ import uek.cj.waker.ui.theme.WakerTheme
 *                    https://blog.kotlin-academy.com/dialogs-in-jetpack-compose-2b7f72b14651
 *                    https://www.youtube.com/watch?v=XI35XG1rECs
 *                    https://www.youtube.com/watch?v=5u917TZkwvI
-*  - Git Ignore:      https://github.com/github/gitignore/blob/main/Android.gitignore
+* - Git Ignore:      https://github.com/github/gitignore/blob/main/Android.gitignore
+* - Number Picker:   https://stackoverflow.com/questions/75306878/how-can-i-make-a-number-picker-in-jetpack-compose
+*                    https://github.com/ChargeMap/Compose-NumberPicker
+*
 *
 * */
 
@@ -131,12 +134,12 @@ fun WakerMainScreenPreview() {
 }
 
 @Composable // Composable funktion für dialog (Neue Alarm)
-fun AddAlarmDialog( // funtion für pop up wecker erstellen
+fun AddAlarmDialog( // funktion für pop up wecker erstellen
     onDismiss: () -> Unit,
     onConfirm: (String) -> Unit
 ) {
-    var input by rememberSaveable { mutableStateOf("") } // variabe speichert alarm input
-
+    var selectedHour by rememberSaveable { mutableStateOf("") } // variabe speichert alarm input -Stunde
+    var selectedMinute by rememberSaveable { mutableStateOf("") } // variabe speichert alarm input -Minute
     AlertDialog(
         onDismissRequest = { //jet compose Funktion (blog Kotlin)
             onDismiss()
