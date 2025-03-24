@@ -13,6 +13,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.AccessTime
 import androidx.compose.material3.Button
+import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.OutlinedTextField
@@ -36,11 +37,11 @@ import uek.cj.waker.ui.theme.WakerTheme
 * - Floating Button: https://developer.android.com/develop/ui/compose/quick-guides/content/create-floating-action-button?hl=de
 *                    https://github.com/android/snippets/blob/a7117c0da26b85a9e005d700a7ae9dec859bb8bd/compose/snippets/src/main/java/com/example/compose/snippets/components/FloatingActionButton.kt#L61-L68
 *                    https://www.youtube.com/watch?v=V4IxattGNJY
-* - Scaffold: https://developer.android.com/develop/ui/compose/quick-guides/content/create-scaffold?hl=de
+* - Scaffold:        https://developer.android.com/develop/ui/compose/quick-guides/content/create-scaffold?hl=de
 *
 * */
 
-
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun WakerMainScreen() {
     var alarms by rememberSaveable { mutableStateOf(listOf<Alarm>()) } // speichert alarm objekte
@@ -72,7 +73,7 @@ fun WakerMainScreen() {
         }
     ) { innerPadding ->
 
-        /*Column(
+        Column(
             modifier = Modifier
                 .fillMaxSize()
                 .padding(16.dp),
@@ -97,7 +98,7 @@ fun WakerMainScreen() {
             ) {
                 Text("here to be press")
             }
-        }*/
+        }
     }
 
 }
