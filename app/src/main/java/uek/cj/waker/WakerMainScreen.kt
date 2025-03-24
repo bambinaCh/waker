@@ -157,7 +157,8 @@ fun AddAlarmDialog( // funktion für pop up wecker erstellen
         confirmButton = { //jet compose funktion um alarm zu speichern
             Button(
                 onClick = {
-                onConfirm(input)
+                    val time = "%02d:%02d".format(timePickerState.hour, timePickerState.minute)
+                onConfirm(time)
                 onDismiss()
             }) {
                 Text("OK")
