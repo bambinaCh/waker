@@ -51,6 +51,7 @@ import uek.cj.waker.ui.theme.WakerTheme
 * - Al.Di. Button:   https://www.youtube.com/watch?v=gtxWnkUPhwU
 *                    https://blog.kotlin-academy.com/dialogs-in-jetpack-compose-2b7f72b14651
 *                    https://www.youtube.com/watch?v=XI35XG1rECs
+*                    https://www.youtube.com/watch?v=5u917TZkwvI
 *  - Git Ignore:      https://github.com/github/gitignore/blob/main/Android.gitignore
 *
 * */
@@ -99,11 +100,24 @@ fun WakerMainScreen() {
             if (alarms.isEmpty()) { // IF ELSE funktion um alarms zu rufen
                 Text("Keine Wakers gesetzt.")
             } else {
-                for (alarm in alarms) {
-                    Text("alarm.time")
+                for (alarm in alarms) { //for lop für jede alarm
+                    Text("alarm.time") //input des alarms
                     Spacer(modifier = Modifier.height(8.dp))
                 }
             }
+        }
+
+        if (showDialog) { //If funktion für Dialog
+            AddAlarmDialog( //AddAlarmDialog composable aufrufen
+                onDismiss = { //compose funktion
+                    showDialog = false
+                },
+                onConfirm = { // compose funktion damit Dialog auf popt
+                    newTime -> // neue alarm
+                    alarms = alarms + Alarm(newTime) // neue alarm speichert
+                    showDialog = false // nach der neue alarm schliesst der Dialog
+                }
+            )
         }
     }
 }
@@ -127,7 +141,7 @@ fun AddAlarmDialog( // funtion für pop up wecker erstellen
         onDismissRequest = { //jet compose Funktion (blog Kotlin)
             onDismiss()
         },
-        confirmButton = { //jet compose funktion
+        confirmButton = { //jet compose funktion um alarm zu speichern
             Button(
                 onClick = {
                 onConfirm(input)
@@ -136,7 +150,7 @@ fun AddAlarmDialog( // funtion für pop up wecker erstellen
                 Text("OK")
             }
         },
-        dismissButton = { //jet compose funktion
+        dismissButton = { //jet compose funktion um zu abbrechen
             Button(
                 onClick = {
                     onDismiss()
