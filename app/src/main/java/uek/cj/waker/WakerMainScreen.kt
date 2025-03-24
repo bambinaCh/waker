@@ -9,17 +9,20 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.AccessTime
 import androidx.compose.material3.Button
 import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.FloatingActionButton
+import androidx.compose.material3.LargeFloatingActionButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -31,17 +34,17 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import uek.cj.waker.model.Alarm
 import uek.cj.waker.ui.theme.WakerTheme
-import androidx.compose.material3.ExperimentalMaterial3Api
+
 
 
 /*Quelle
 * - listOf<Alarm>:   https://developer.android.com/develop/ui/compose/state?hl=de
-* - Floating Button: https://developer.android.com/develop/ui/compose/quick-guides/content/create-floating-action-button?hl=de
+* - Floating Button: https://developer.android.com/develop/ui/compose/components/fab?hl=de
 *                    https://github.com/android/snippets/blob/a7117c0da26b85a9e005d700a7ae9dec859bb8bd/compose/snippets/src/main/java/com/example/compose/snippets/components/FloatingActionButton.kt#L61-L68
 *                    https://www.youtube.com/watch?v=V4IxattGNJY
 * - Scaffold:        https://developer.android.com/develop/ui/compose/quick-guides/content/create-scaffold?hl=de
 * - Exp. Material    https://developer.android.com/reference/kotlin/androidx/compose/material3/ExperimentalMaterial3Api
-* - Dialog:         https://developer.android.com/develop/ui/views/components/dialogs?hl=de
+* - Dialog:          https://developer.android.com/develop/ui/views/components/dialogs?hl=de
 *
 * */
 
@@ -66,10 +69,12 @@ fun WakerMainScreen() {
             )
         },
         floatingActionButton = { //jet compose composable Teil
-            FloatingActionButton( //Composable Button von Android Compose
+            LargeFloatingActionButton( //Composable Button von Android Compose
                 onClick = { //klick Function
-                showDialog = true //mit claas alarm
-            }) {
+                    showDialog = true //mit claas alarm
+                },
+                shape = CircleShape
+                ) {
                 Icon( //composable funktion ui element
                     Icons.Filled.Add, // compose icons library, Add (+) icon
                     contentDescription = "Neuen Alarm hinzufügen"
