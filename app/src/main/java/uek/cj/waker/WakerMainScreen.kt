@@ -31,6 +31,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import uek.cj.waker.model.Alarm
 import uek.cj.waker.ui.theme.WakerTheme
+import androidx.compose.material3.ExperimentalMaterial3Api
+
 
 /*Quelle
 * - listOf<Alarm> :https://developer.android.com/develop/ui/compose/state?hl=de
@@ -38,7 +40,7 @@ import uek.cj.waker.ui.theme.WakerTheme
 *                    https://github.com/android/snippets/blob/a7117c0da26b85a9e005d700a7ae9dec859bb8bd/compose/snippets/src/main/java/com/example/compose/snippets/components/FloatingActionButton.kt#L61-L68
 *                    https://www.youtube.com/watch?v=V4IxattGNJY
 * - Scaffold:        https://developer.android.com/develop/ui/compose/quick-guides/content/create-scaffold?hl=de
-*
+* - Exp. Material    https://developer.android.com/reference/kotlin/androidx/compose/material3/ExperimentalMaterial3Api
 * */
 
 @OptIn(ExperimentalMaterial3Api::class)
