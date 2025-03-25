@@ -16,5 +16,14 @@ object AlarmStorage {
         prefs.edit().putString(KEY_ALARMS, json).apply()
     }
 
-
+    fun loadAlarms(context: Context): List<Alarm> {
+        val prefs = context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE)
+        val json = prefs.getString(KEY_ALARMS, null)
+        return if (json != null) {
+            val type = object : TypeToken<List<Alarm>>() {}.type
+            Gson().fromJson(json, type)
+        } else {
+            emptyList()
+        }
+    }
 }
