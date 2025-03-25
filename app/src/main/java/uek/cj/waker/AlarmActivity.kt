@@ -37,6 +37,10 @@ class AlarmActivity : Activity() {
             setTextColor(Color.MAGENTA)
             setTextSize(TypedValue.COMPLEX_UNIT_SP, 64f)
         }
+
+        layout.addView(titleView)
+        layout.addView(timeView)
+
         /*
         setContentView(TextView(this).apply {
             text = "Waker!"
