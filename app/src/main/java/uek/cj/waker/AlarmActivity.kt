@@ -21,12 +21,22 @@ class AlarmActivity : Activity() {
 
         // Layout erstellen
         val layout = LinearLayout(this).apply {
-
+            orientation = LinearLayout.VERTICAL
+            gravity = Gravity.CENTER
+            setBackgroundColor(Color.BLACK)
         }
 
+        val titleView = TextView(this).apply { // title
+            text = "Waker"
+            setTextColor(Color.WHITE)
+            setTextSize(TypedValue.COMPLEX_UNIT_SP, 36f)
+        }
+
+
+        /*
         setContentView(TextView(this).apply {
             text = "Waker!"
             textSize = 32f
-        })
+        })*/
     }
 }
