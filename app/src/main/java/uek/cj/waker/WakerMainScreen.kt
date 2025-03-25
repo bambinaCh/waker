@@ -91,7 +91,7 @@ fun WakerMainScreen() {
             TopAppBar(//jet compose composable
                 title = { //slot für titel
                     Text("Wakers") // composable funktion ui element
-                        },
+                },
                 navigationIcon = { //slot für Icon
                     Icon( //ui element
                         Icons.Default.AccessTime, // compose icons library,icon Uhr
@@ -106,7 +106,7 @@ fun WakerMainScreen() {
                     showDialog = true //mit claas alarm
                 },
                 shape = CircleShape
-                ) {
+            ) {
                 Icon( //composable funktion ui element
                     Icons.Filled.Add, // compose icons library, Add (+) icon
                     contentDescription = "Neuen Alarm hinzufügen"
@@ -124,7 +124,7 @@ fun WakerMainScreen() {
         ) {
             if (alarms.isEmpty()) { // IF ELSE funktion um alarms zu rufen
                 item {
-                    Column (
+                    Column(
                         modifier = Modifier
                             .fillMaxSize(),
                         verticalArrangement = Arrangement.Center,
@@ -134,12 +134,11 @@ fun WakerMainScreen() {
                     }
                 }
             } else {
-                items(alarms) { alarm ->//for lop für jede alarm
+                items(alarms) { alarm -> //for lop für jede alarm
                     Spacer(modifier = Modifier.height(20.dp))
 
                     // aktive oder nicht zustand alarm
                     var isChecked by rememberSaveable(alarm.time) { mutableStateOf(alarm.isActive) }
-
 
                     Row(
                         modifier = Modifier.fillMaxSize(),
@@ -147,7 +146,7 @@ fun WakerMainScreen() {
                         horizontalArrangement = Arrangement.SpaceBetween
                     ) {
                         Text(
-                            text = alarm.time,//input des alarms
+                            text = alarm.time, //input des alarms
                             fontSize = 40.sp
                         )
 
@@ -167,7 +166,7 @@ fun WakerMainScreen() {
                                     AlarmStorage.saveAlarms(context, alarms)
                                 },
                                 colors = SwitchDefaults.colors(
-                                    checkedThumbColor = Color(0xFF9B5DE5),     // purple(an)
+                                    checkedThumbColor = Color(0xFF9B5DE5),     // violett (an)
                                     uncheckedThumbColor = Color.LightGray,     // grau (aus)
                                     checkedTrackColor = Color(0xFFD6BBF5),
                                     uncheckedTrackColor = Color(0xFFCCCCCC)
@@ -188,8 +187,8 @@ fun WakerMainScreen() {
                                 Text("X")
                             }
                         }
+                    }
                     Spacer(modifier = Modifier.height(12.dp))
-
                     HorizontalDivider(thickness = 2.dp)
                 }
             }
@@ -200,9 +199,8 @@ fun WakerMainScreen() {
                 onDismiss = { //compose funktion
                     showDialog = false
                 },
-                onConfirm = { // compose funktion damit Dialog auf popt
-                    newTime -> // neue alarm
-                    alarms = alarms + Alarm(newTime) // neue alarm speichert
+                onConfirm = { newTime -> // compose funktion damit Dialog auf popt
+                    alarms = alarms + Alarm(newTime, isActive = true) // neue alarm speichert
                     AlarmStorage.saveAlarms(context, alarms) // alarms im Context speichern
                     showDialog = false // nach der neue alarm schliesst der Dialog
                 }
