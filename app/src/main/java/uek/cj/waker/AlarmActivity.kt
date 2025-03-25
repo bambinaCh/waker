@@ -82,5 +82,15 @@ class AlarmActivity : Activity() {
         mediaPlayer = MediaPlayer.create(this, android.provider.Settings.System.DEFAULT_ALARM_ALERT_URI)
         mediaPlayer?.isLooping = true
         mediaPlayer?.start()
+
+        // vibrierein auslösen - Chatpgt
+        vibrator = getSystemService(VIBRATOR_SERVICE) as Vibrator
+        val pattern = longArrayOf(0, 500, 500, 500, 500)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            vibrator?.vibrate(VibrationEffect.createWaveform(pattern, 0)) // 0 = repeat from beginning
+        } else {
+            vibrator?.vibrate(pattern, 0)
+        }
+    }
     }
 }
