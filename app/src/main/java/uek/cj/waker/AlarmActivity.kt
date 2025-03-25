@@ -32,7 +32,11 @@ class AlarmActivity : Activity() {
             setTextSize(TypedValue.COMPLEX_UNIT_SP, 36f)
         }
 
-
+        val timeView = TextView(this).apply { // tastdächliche value con der ausgelöste Alarm
+            text = alarmTime
+            setTextColor(Color.MAGENTA)
+            setTextSize(TypedValue.COMPLEX_UNIT_SP, 64f)
+        }
         /*
         setContentView(TextView(this).apply {
             text = "Waker!"
