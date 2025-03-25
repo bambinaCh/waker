@@ -41,7 +41,8 @@ import android.app.AlarmManager
 import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
-import androidx.compose.ui.platform.LocalContext
+import android.os.Build
+import android.widget.Toast
 
 /* Quelle
 * - General Infos:   https://www.youtube.com/watch?v=V4IxattGNJY
@@ -190,27 +191,37 @@ fun AddAlarmDialog( // funktion für pop up wecker erstellen
 
                     onConfirm(time) //neue zeit an haupt screen
 
-                    val alarmManager = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager // system service holen
-                    val intent = Intent(context, AlarmReceiver::class.java) // intent für AlarmReceiver erstellen
-                    val pendingIntent = PendingIntent.getBroadcast( // pending intent
-                        context,
-                        time.hashCode(), //code für jede uhrzeit
-                        intent,
-                        PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE // flags für security und und aktualisierung
-                    )
+                    val alarmManager = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager  // system service holen
 
-                    val calendar = Calendar.getInstance().apply {
-                        set(Calendar.HOUR_OF_DAY, timePickerState.hour)
-                        set(Calendar.MINUTE, timePickerState.minute)
-                        set(Calendar.SECOND, 0)
-                    }
+                    try {
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S && !alarmManager.canScheduleExactAlarms()) {
+                            Toast.makeText(context, "Keine extakte Wakers bitte.", Toast.LENGTH_LONG).show()
+                        } else {
+                            val intent = Intent(
+                                context,
+                                AlarmReceiver::class.java
+                            ) // intent für AlarmReceiver erstellen
+                            val pendingIntent = PendingIntent.getBroadcast( // pending intent
+                                context,
+                                time.hashCode(), //code für jede uhrzeit
+                                intent,
+                                PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE // flags für security und und aktualisierung
+                            )
+
+                            val calendar = Calendar.getInstance().apply {
+                                set(Calendar.HOUR_OF_DAY, timePickerState.hour) //stunden setzen
+                                set(Calendar.MINUTE, timePickerState.minute)  // Minute setzen
+                                set(Calendar.SECOND, 0) //sekunden auf 0
+                            }
 
 
-                    alarmManager.setExactAndAllowWhileIdle(
-                        AlarmManager.RTC_WAKEUP,
-                        calendar.timeInMillis,
-                        pendingIntent
-                    )
+                            alarmManager.setExactAndAllowWhileIdle(   // exakte Alarm setzen
+                                AlarmManager.RTC_WAKEUP,
+                                calendar.timeInMillis,
+                                pendingIntent
+                            )
+                        }
+
                     onDismiss() //dialog schliessen
                 }
             ) {
