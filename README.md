@@ -48,7 +48,7 @@ Die Idee kamm aus einem persoenlichen Problem. Ich gewoehne mich schnell an Weck
 - Einige Funktionen wie Bewegungserkennung oder Matheaufgaben sind vorbereitet, aber noch nicht eingebaut.  
 - Die App wurde wie geplant mit Jetpack Compose umgesetzt. Manche Designelemente wie die analoge Uhr habe ich vereinfacht.  
 - Beim Ausloesen des Alarms wird ein eigenes Vollbild-Layout (AlarmActivity) mit Ton und Vibration angezeigt.  
-- Die AlarmActivity funktioniert im Emulator nicht zuverlaessig, wird aber technisch korrekt gestartet.  
+- Die AlarmActivity wird technisch korrekt gestartet, aber im Emulator funktioniert sie nicht immer zuverlaessig.     
 - Der Alarmton ist eine eigene .wav-Datei, eingebunden im Ordner `res/raw/`.
 
 
