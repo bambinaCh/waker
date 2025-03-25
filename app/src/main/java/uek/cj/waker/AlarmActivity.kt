@@ -92,5 +92,17 @@ class AlarmActivity : Activity() {
             vibrator?.vibrate(pattern, 0)
         }
     }
+
+    private fun stopAlarm() { // funtion um mediaPlayer und vibration zu stopen
+        mediaPlayer?.stop() //anhaltet ton
+        mediaPlayer?.release()
+        mediaPlayer = null
+
+        vibrator?.cancel() //anhaltet vibration
+    }
+
+    override fun onDestroy() { //endet Waker
+        super.onDestroy()
+        stopAlarm()
     }
 }
