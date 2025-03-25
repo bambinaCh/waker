@@ -237,6 +237,14 @@ fun AddAlarmDialog( // funktion für pop up wecker erstellen
                                 calendar.timeInMillis,
                                 pendingIntent
                             )
+
+                            val vibrator = context.getSystemService(Context.VIBRATOR_SERVICE) as android.os.Vibrator // aktuator fuer erfolgreiche alarm
+                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                                vibrator.vibrate(android.os.VibrationEffect.createOneShot(500, android.os.VibrationEffect.DEFAULT_AMPLITUDE))
+                            } else {
+                                vibrator.vibrate(500)
+                            }
+
                         }
                     } catch (e: SecurityException) {
                         Toast.makeText(context, "Fehler: ${e.message}", Toast.LENGTH_LONG).show() // Fehlerbehandlung
