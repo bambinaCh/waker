@@ -94,6 +94,7 @@ Ich habe `ktlint` in Android Studio verwendet. So kannst du ihn ausfuehren:
 *1. Terminal oeffnen im Projektordner*  
 ```bash
 ./gradlew ktlintCheck
+```
 2. Oder ueber Plugin Ktlint direkt in Android Studio installieren und ueber Rechtsklick ausfuehren
 
 ---
