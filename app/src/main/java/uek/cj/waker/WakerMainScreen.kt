@@ -44,6 +44,8 @@ import android.content.Intent
 import android.os.Build
 import android.widget.Toast
 import android.provider.Settings
+import androidx.compose.material3.ButtonDefaults
+import androidx.compose.ui.graphics.Color
 
 
 /* Quelle
@@ -130,18 +132,28 @@ fun WakerMainScreen() {
             } else {
                 items(alarms) { alarm ->//for lop für jede alarm
                     Spacer(modifier = Modifier.height(20.dp))
-                    Text(
-                        text = alarm.time,//input des alarms
-                        fontSize = 40.sp
-                    )
-                    Spacer(modifier = Modifier.height(20.dp))
-                    Button(
-                        onClick = {
-                            alarms = alarms.filter { it != alarm }
-                            AlarmStorage.saveAlarms(context, alarms)
-                        }
+
+                    Row(
+                        modifier = Modifier.fillMaxSize(),
+                        verticalAlignment = Alignment.CenterVertically,
+                        horizontalArrangement = Arrangement.SpaceBetween
                     ) {
-                        Text("X")
+                        Text(
+                            text = alarm.time,//input des alarms
+                            fontSize = 40.sp
+                        )
+                        Spacer(modifier = Modifier.height(20.dp))
+                        Button(
+                            onClick = {
+                                alarms = alarms.filter { it != alarm }
+                                AlarmStorage.saveAlarms(context, alarms)
+                            },
+                            colors = ButtonDefaults.buttonColors(
+                                containerColor = Color(0xFFFFCDD2) // hellrot
+                            )
+                        ) {
+                            Text("X")
+                        }
                     }
                     Spacer(modifier = Modifier.height(12.dp))
 
