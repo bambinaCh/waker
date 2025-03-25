@@ -46,7 +46,8 @@ import android.widget.Toast
 import android.provider.Settings
 import androidx.compose.foundation.layout.Row
 import androidx.compose.material3.ButtonDefaults
-import androidx.compose.ui.graphics.Colorimport androidx.compose.material3.Switch
+import androidx.compose.ui.graphics.Color
+import androidx.compose.material3.Switch
 import androidx.compose.material3.SwitchDefaults
 
 
@@ -150,42 +151,43 @@ fun WakerMainScreen() {
                             fontSize = 40.sp
                         )
 
-                        //On oOff stich dank chatpgt
-                        androidx.compose.material3.Switch(
-                            checked = isChecked,
-                            onCheckedChange = { checked ->
-                                isChecked = checked
+                        Row(verticalAlignment = Alignment.CenterVertically) {
 
-                                // Alarmliste updaten mit neuem Status
-                                alarms = alarms.map {
-                                    if (it.time == alarm.time) it.copy(isActive = checked) else it
-                                }
+                            //On oOff stich dank chatpgt
+                            Switch(
+                                checked = isChecked,
+                                onCheckedChange = { checked ->
+                                    isChecked = checked
 
-                                AlarmStorage.saveAlarms(context, alarms)
-                            },
-                            colors = androidx.compose.material3.SwitchDefaults.colors(
-                                checkedThumbColor = Color(0xFF9B5DE5),     // violett (an)
-                                uncheckedThumbColor = Color.LightGray,     // grau (aus)
-                                checkedTrackColor = Color(0xFFD6BBF5),
-                                uncheckedTrackColor = Color(0xFFCCCCCC)
+                                    // neue statuus von der liste
+                                    alarms = alarms.map {
+                                        if (it.time == alarm.time) Alarm(it.time, checked) else it
+                                    }
+
+                                    AlarmStorage.saveAlarms(context, alarms)
+                                },
+                                colors = SwitchDefaults.colors(
+                                    checkedThumbColor = Color(0xFF9B5DE5),     // purple(an)
+                                    uncheckedThumbColor = Color.LightGray,     // grau (aus)
+                                    checkedTrackColor = Color(0xFFD6BBF5),
+                                    uncheckedTrackColor = Color(0xFFCCCCCC)
+                                )
                             )
-                        )
-                    }
 
+                            Spacer(modifier = Modifier.padding(start = 8.dp))
 
-                        Spacer(modifier = Modifier.height(20.dp))
-                        Button(
-                            onClick = {
-                                alarms = alarms.filter { it != alarm }
-                                AlarmStorage.saveAlarms(context, alarms)
-                            },
-                            colors = ButtonDefaults.buttonColors(
-                                containerColor = Color(0xFFC18486) // rot
-                            )
-                        ) {
-                            Text("X")
+                            Button(
+                                onClick = {
+                                    alarms = alarms.filter { it != alarm }
+                                    AlarmStorage.saveAlarms(context, alarms)
+                                },
+                                colors = ButtonDefaults.buttonColors(
+                                    containerColor = Color(0xFFC18486) // rot
+                                )
+                            ) {
+                                Text("X")
+                            }
                         }
-                    }
                     Spacer(modifier = Modifier.height(12.dp))
 
                     HorizontalDivider(thickness = 2.dp)
