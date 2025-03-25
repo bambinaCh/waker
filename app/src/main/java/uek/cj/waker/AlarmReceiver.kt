@@ -13,12 +13,12 @@ import android.widget.Toast
 * */
 
 class AlarmReceiver : BroadcastReceiver() {
-    override fun onReceive(context: Context, intent: Intent?) {
+    override fun onReceive(context: Context, intent: Intent?) { // alarm wird automatisch ausgeloest
         Toast.makeText(context, "Waker!", Toast.LENGTH_LONG).show()
 
         val fullScreenIntent = Intent(context, AlarmActivity::class.java).apply {
             flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP
         }
-        context.startActivity(fullScreenIntent)
+        context.startActivity(fullScreenIntent) //vollbildmodus
     }
 }
