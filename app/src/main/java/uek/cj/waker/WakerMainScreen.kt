@@ -214,13 +214,15 @@ fun AddAlarmDialog( // funktion für pop up wecker erstellen
                                 set(Calendar.SECOND, 0) //sekunden auf 0
                             }
 
-
                             alarmManager.setExactAndAllowWhileIdle(   // exakte Alarm setzen
                                 AlarmManager.RTC_WAKEUP,
                                 calendar.timeInMillis,
                                 pendingIntent
                             )
                         }
+                    } catch (e: SecurityException) {
+                        Toast.makeText(context, "Fehler: ${e.message}", Toast.LENGTH_LONG).show() // Fehlerbehandlung
+                    }
 
                     onDismiss() //dialog schliessen
                 }
