@@ -243,7 +243,7 @@ fun AddAlarmDialog( // funktion für pop up wecker erstellen
                                 val pattern = longArrayOf(0, 300, 200, 300, 200, 300) // 0ms, vib 300ms, Pause 200ms, vib 300ms.
                                 vibrator.vibrate(android.os.VibrationEffect.createWaveform(pattern, -1)) // sekuenz nicht wiederholen
                             } else {
-                                vibrator.vibrate(500)
+                                vibrator.vibrate(longArrayOf(0, 300, 200, 300, 200, 300), -1) // Vibrationsekuenz ohne wiederholung
                             }
 
                         }
