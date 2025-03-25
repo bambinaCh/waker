@@ -134,6 +134,10 @@ fun WakerMainScreen() {
                 items(alarms) { alarm ->//for lop für jede alarm
                     Spacer(modifier = Modifier.height(20.dp))
 
+                    // aktive oder nicht zustand alarm
+                    var isChecked by rememberSaveable(alarm.time) { mutableStateOf(alarm.isActive) }
+
+
                     Row(
                         modifier = Modifier.fillMaxSize(),
                         verticalAlignment = Alignment.CenterVertically,
