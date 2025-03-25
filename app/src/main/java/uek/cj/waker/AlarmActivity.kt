@@ -11,7 +11,7 @@ import android.view.Gravity
 /*
 * Quellen:
 *  - Vibration:     https://medium.com/@rowaido.game/how-to-use-vibration-effects-in-android-apps-using-jetpack-compose-0fcd8e339931
-*
+* - MediaPlayer:    https://medium.com/@myofficework000/building-a-media-player-app-with-jetpack-media3-in-jetpack-compose-16ae8c35f955
 *
 * */
 
@@ -77,5 +77,10 @@ class AlarmActivity : Activity() {
         layout.addView(logicButton)
 
         setContentView(layout)
+
+        // ton starten
+        mediaPlayer = MediaPlayer.create(this, android.provider.Settings.System.DEFAULT_ALARM_ALERT_URI)
+        mediaPlayer?.isLooping = true
+        mediaPlayer?.start()
     }
 }
