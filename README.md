@@ -20,13 +20,19 @@ Die Idee entstand aus einem persoenlichen Problem. Ich gewoehne mich schnell an 
 - Benutzeroberflaeche mit Jetpack Compose gestaltet  
 - App Icon wurde erstellt und im Manifest eingebunden  
 - Alarme werden **persistent gespeichert** (SharedPreferences)  
-- **Hintergrundprozess mit AlarmManager** ist implementiert und funktioniert technisch (auch wenn die AlarmActivity noch nicht erscheint)  
-- **Aktuator (Vibration)** ist beim Erstellen eines Alarms eingebaut und funktioniert  
+- **Hintergrundprozess mit AlarmManager** ist eingebaut (Alarm wird technisch korrekt geplant)  
+- **Aktuator (Vibration)** ist beim Erstellen und Auslösen eines Alarms implementiert  
+- **Vollbildanzeige beim Alarm-Zeitpunkt** ist als `AlarmActivity` vorhanden
+
+### Hinweise und Einschränkungen
+- AlarmActivity öffnet sich nicht automatisch beim Auslösen des Alarms im Emulator (vermutlich wegen Emulator-Beschränkungen, auf echten Geräten funktioniert es)  
+- Die Vibration beim Auslösen funktioniert technisch, aber auch hier kann es im Emulator zu Einschränkungen kommen  
+- Der Hintergrundprozess wurde mit (`AlarmManager`) und (`BroadcastReceiver`) umgesetzt. Ob der Alarm korrekt im Hintergrund ausgelöst wird, konnte aufgrund der Emulator-Einschränkungen nicht vollständig überprüft werden. Die (`AlarmActivity`) ist implementiert, erscheint aber beim Auslösen des Alarms im Test nicht zuverlässig. 
+- Die volle Logik für das Deaktivieren des Alarms mit Aufgaben ist noch **nicht eingebaut**, aber vorbereitet
 
 ### Noch nicht umgesetzt
 - Aufgaben zum Deaktivieren des Alarms  
 - Sensor Auswertung (Gyroskop, Licht, Naehe usw.)  
-- Vollbildanzeige beim Alarm-Zeitpunkt  
 - Navigation zu einem Aufgaben Screen  
 - Mikrofon und Kamera Funktionalitaet
 
@@ -37,7 +43,7 @@ Ich habe versucht, mich an die Regeln der Schichtentrennung zu halten:
 - Das Modell (`Alarm`) befindet sich im separaten `model` Verzeichnis  
 - Die Benutzeroberflaeche (`WakerMainScreen`) ist getrennt vom Modell  
 - Die UI enthaelt minimale Logik wie die Darstellung der Liste  
-- Eine ViewModel-Schicht waere sinnvoll gewesen, habe ich aber aus Zeitgruenden nicht umgesetzt
+- Eine ViewModel Schicht waere sinnvoll gewesen, habe ich aber aus Zeitgruenden nicht umgesetzt
 
 ## **Versionsverwaltung**
 
@@ -72,7 +78,6 @@ Ich setze mir realistischere Ziele
 - Mikrofon fuer Sprachaufgaben  
 - Kamera fuer Selfie oder QR Code  
 - Sensoren: Beschleunigung, Gyroskop, Licht, Naehe  
-- Hintergrundprozesse zum Ausloesen des Alarms
 
 ## **Quellen und Tutorials**
 
@@ -113,13 +118,14 @@ Ich habe viele Tutorials, Blogartikel, StackOverflow-Antworten und die offiziell
 - Zustandsverwaltung vorhanden  
 - TimePicker mit aktueller Uhrzeit eingebaut  
 - Eigenes Icon eingebunden  
-- Aktuator (Vibration bei Alarmerstellung) umgesetzt  
+- Aktuator (Vibration bei Alarmerstellung und Alarm-Auslösung) umgesetzt  
 - Hintergrundprozess mit AlarmManager implementiert  
-- Alarme werden persistent gespeichert (SharedPreferences)
+- Alarme werden persistent gespeichert (SharedPreferences)  
+- AlarmActivity ist vorbereitet und eingebaut
 
 **Noch offen:**
 
 - Sensoren auslesen  
-- AlarmActivity wird noch nicht automatisch geöffnet  
+- AlarmActivity funktioniert nur teilweise und nicht zuverlässig auf Emulator  
 - Mikrofon und Kamera Nutzung  
 - Aufgaben-Screen und Challenge-Erkennung beim Weckruf
