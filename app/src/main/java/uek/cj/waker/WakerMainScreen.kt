@@ -43,6 +43,8 @@ import android.content.Context
 import android.content.Intent
 import android.os.Build
 import android.widget.Toast
+import android.provider.Settings
+
 
 /* Quelle
 * - General Infos:   https://www.youtube.com/watch?v=V4IxattGNJY
@@ -218,6 +220,15 @@ fun AddAlarmDialog( // funktion für pop up wecker erstellen
                                     add(Calendar.DAY_OF_YEAR, 1)
                                 }
                             }
+
+                            //user erlaubnis
+                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S && !alarmManager.canScheduleExactAlarms()) {
+                                val intent = Intent(Settings.ACTION_REQUEST_SCHEDULE_EXACT_ALARM)
+                                context.startActivity(intent)
+                                Toast.makeText(context, "Bitte exakte Alarme erlauben", Toast.LENGTH_LONG).show()
+                                return@Button
+                            }
+
 
                             alarmManager.setExactAndAllowWhileIdle(   // exakte Alarm setzen
                                 AlarmManager.RTC_WAKEUP,
