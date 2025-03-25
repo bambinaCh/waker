@@ -4,6 +4,10 @@ import android.app.Activity
 import android.os.Bundle
 import android.view.WindowManager
 import android.widget.TextView
+import android.graphics.Color
+import android.util.TypedValue
+import android.widget.LinearLayout
+import android.view.Gravity
 
 class AlarmActivity : Activity() {
     override fun onCreate(savedInstanceState: Bundle?) {
