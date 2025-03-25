@@ -141,6 +141,8 @@ fun WakerMainScreenPreview() {
     }
 }
 
+
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable // Composable funktion für dialog (Neue Alarm)
 fun AddAlarmDialog( // funktion für pop up wecker erstellen
     onDismiss: () -> Unit,
@@ -176,6 +178,9 @@ fun AddAlarmDialog( // funktion für pop up wecker erstellen
                     Text("Abbrechen")
             }
         },
+        text = {
+            TimePicker(state = timePickerState) // anzeigen Uhr
+        }
 
     )
 }
