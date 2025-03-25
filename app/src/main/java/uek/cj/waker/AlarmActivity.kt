@@ -60,7 +60,7 @@ class AlarmActivity : Activity() {
         }
 
 
-        val motionButton = Button(this).apply { // Button für
+        val motionButton = Button(this).apply { // Button für bewegungsaufgabe
             text = "Bewegungsaufgabe"
             setOnClickListener {
                 stopAlarm()// wenn gelöst alarm stopt
@@ -114,3 +114,4 @@ class AlarmActivity : Activity() {
         stopAlarm()
     }
 }
+

@@ -135,6 +135,16 @@ fun WakerMainScreen() {
                         fontSize = 40.sp
                     )
                     Spacer(modifier = Modifier.height(20.dp))
+                    Button(
+                        onClick = {
+                            alarms = alarms.filter { it != alarm }
+                            AlarmStorage.saveAlarms(context, alarms)
+                        }
+                    ) {
+                        Text("X")
+                    }
+                    Spacer(modifier = Modifier.height(12.dp))
+
                     HorizontalDivider(thickness = 2.dp)
                 }
             }
