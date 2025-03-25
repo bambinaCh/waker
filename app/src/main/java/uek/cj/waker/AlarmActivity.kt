@@ -8,6 +8,12 @@ import android.graphics.Color
 import android.util.TypedValue
 import android.widget.LinearLayout
 import android.view.Gravity
+import android.media.MediaPlayer
+import android.os.Vibrator
+import android.os.VibrationEffect
+import android.widget.Button
+import android.widget.Toast
+
 /*
 * Quellen:
 *  - Vibration:     https://medium.com/@rowaido.game/how-to-use-vibration-effects-in-android-apps-using-jetpack-compose-0fcd8e339931
