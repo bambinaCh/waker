@@ -76,7 +76,8 @@ import android.provider.Settings
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun WakerMainScreen() {
-    var alarms by rememberSaveable { mutableStateOf(listOf<Alarm>()) } // variabe verwaltet und speichert alle alarms
+    val context = LocalContext.current
+    var alarms by rememberSaveable { mutableStateOf(AlarmStorage.loadAlarms(context)) } // variabe verwaltet und speichert alle alarms
     var showDialog by rememberSaveable { mutableStateOf(false) } // variable steuerung für pop up
 
     Scaffold( //jet compose composable gerüst
