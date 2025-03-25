@@ -51,6 +51,25 @@ class AlarmActivity : Activity() {
             setTextSize(TypedValue.COMPLEX_UNIT_SP, 64f)
         }
 
+
+        val motionButton = Button(this).apply { // Button für
+            text = "Bewegungsaufgabe"
+            setOnClickListener {
+                stopAlarm()
+                Toast.makeText(this@AlarmActivity, "Bewegung erkannt! Alarm gestoppt.", Toast.LENGTH_SHORT).show()
+                finish()
+            }
+        }
+
+        val logicButton = Button(this).apply {
+            text = "Aufgabe lösen"
+            setOnClickListener {
+                stopAlarm()
+                Toast.makeText(this@AlarmActivity, "Aufgabe gelöst! Alarm gestoppt.", Toast.LENGTH_SHORT).show()
+                finish()
+            }
+        }
+
         layout.addView(titleView)
         layout.addView(timeView)
 
