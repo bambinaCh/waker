@@ -180,8 +180,12 @@ fun AddAlarmDialog( // funktion für pop up wecker erstellen
             Button(
                 onClick = {
                     val time = "%02d:%02d".format(timePickerState.hour, timePickerState.minute) //Alarm value 2 stellig formatiert
-                onConfirm(time)
-                onDismiss()
+                onConfirm(time) //neue zeit an haupt screen
+
+
+
+
+                onDismiss() //dialog schliessen
             }) {
                 Text("OK")
             }
