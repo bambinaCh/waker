@@ -55,24 +55,26 @@ class AlarmActivity : Activity() {
         val motionButton = Button(this).apply { // Button für
             text = "Bewegungsaufgabe"
             setOnClickListener {
-                stopAlarm()
+                stopAlarm()// wenn gelöst alarm stopt
                 Toast.makeText(this@AlarmActivity, "Bewegung erkannt! Alarm gestoppt.", Toast.LENGTH_SHORT).show()
-                finish()
+                finish() //aufgabe ende
             }
         }
 
         val logicButton = Button(this).apply {
             text = "Aufgabe lösen"
             setOnClickListener {
-                stopAlarm()
+                stopAlarm() // wen gelöst alarm stopt
                 Toast.makeText(this@AlarmActivity, "Aufgabe gelöst! Alarm gestoppt.", Toast.LENGTH_SHORT).show()
-                finish()
+                finish() //aufgabe ende
             }
         }
 
+        //view zu title, zeit, Buttons und layout selbst
         layout.addView(titleView)
         layout.addView(timeView)
-
+        layout.addView(motionButton)
+        layout.addView(logicButton)
 
         setContentView(layout)
     }
