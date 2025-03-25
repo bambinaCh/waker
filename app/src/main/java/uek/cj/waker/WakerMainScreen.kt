@@ -35,6 +35,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import uek.cj.waker.model.Alarm
 import uek.cj.waker.ui.theme.WakerTheme
 import java.util.Calendar
@@ -112,7 +113,9 @@ fun WakerMainScreen() {
                 Text("Keine Wakers gesetzt.")
             } else {
                 for (alarm in alarms) { //for lop für jede alarm
-                    Text(alarm.time) //input des alarms
+                    Text(
+                        text = alarm.time,//input des alarms
+                        fontSize = 40.sp)
                     Spacer(modifier = Modifier.height(8.dp))
                 }
             }
