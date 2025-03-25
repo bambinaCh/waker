@@ -8,34 +8,51 @@
 
 Waker ist eine native Android App, bei der man den Wecker nicht einfach per Knopfdruck ausschalten kann. Stattdessen muss man eine zufaellige Aufgabe absolvieren, zum Beispiel das Handy schuetteln oder eine Frage beantworten, um den Waker auszuschalten.
 
-Die Idee entstand aus einem persoenlichen Problem. Ich gewoehne mich schnell an Wecker, deshalb brauche ich taeglich eine neue Art aufzustehen, um wirklich wach zu werden.
+Die Idee kamm aus einem persoenlichen Problem. Ich gewoehne mich schnell an Wecker, deshalb brauche ich taeglich eine neue Art aufzustehen, um wirklich wach zu werden.
 
 ## **Funktionen (geplant und umgesetzt)**
 
-### Umgesetzt
-- Alarm kann per Dialog erstellt werden  
-- Die gesetzten Alarme werden auf dem Hauptscreen angezeigt  
-- Aktuelle Uhrzeit wird als Standard im Dialog uebernommen  
-- TimePicker als digitale Eingabe vorhanden  
-- Alarmzeit wird im Format `HH:mm` dargestellt  
-- Benutzeroberflaeche mit Jetpack Compose gestaltet  
-- App Icon wurde erstellt und im Manifest eingebunden  
-- Alarme werden **persistent gespeichert** (SharedPreferences)  
-- **Hintergrundprozess mit AlarmManager** ist eingebaut (Alarm wird technisch korrekt geplant)  
-- **Aktuator (Vibration)** ist beim Erstellen und Auslösen eines Alarms implementiert  
-- **Vollbildanzeige beim Alarm-Zeitpunkt** ist als `AlarmActivity` vorhanden
+### *Umgesetzt*
+* Alarm kann per Dialog erstellt werden  
+* Die gesetzten Alarme werden auf dem Hauptscreen angezeigt  
+* Aktuelle Uhrzeit wird als Standard im Dialog uebernommen  
+* TimePicker als digitale Eingabe vorhanden  
+* Alarmzeit wird im Format `HH:mm` dargestellt  
+* Benutzeroberflaeche mit Jetpack Compose gestaltet  
+* App Icon wurde erstellt und im Manifest eingebunden  
+* Alarme werden *persistent gespeichert* (SharedPreferences)  
+* *Hintergrundprozess mit AlarmManager* ist eingebaut (Alarm wird technisch korrekt geplant)  
+* *Aktuator (Vibration)* ist beim Erstellen und Ausloesen eines Alarms implementiert  
+* *Vollbildanzeige beim Alarm-Zeitpunkt* ist als `AlarmActivity` vorhanden  
 
-### Hinweise und Einschränkungen
-- AlarmActivity öffnet sich nicht automatisch beim Auslösen des Alarms im Emulator (vermutlich wegen Emulator-Beschränkungen, auf echten Geräten funktioniert es)  
-- Die Vibration beim Auslösen funktioniert technisch, aber auch hier kann es im Emulator zu Einschränkungen kommen  
-- Der Hintergrundprozess wurde mit (`AlarmManager`) und (`BroadcastReceiver`) umgesetzt. Ob der Alarm korrekt im Hintergrund ausgelöst wird, konnte aufgrund der Emulator-Einschränkungen nicht vollständig überprüft werden. Die (`AlarmActivity`) ist implementiert, erscheint aber beim Auslösen des Alarms im Test nicht zuverlässig. 
-- Die volle Logik für das Deaktivieren des Alarms mit Aufgaben ist noch **nicht eingebaut**, aber vorbereitet
+### *Hinweise und Einschraenkungen*
+* AlarmActivity oeffnet sich nicht automatisch beim Ausloesen des Alarms im Emulator (vermutlich wegen Emulator-Beschraenkungen, auf echten Geraeten funktioniert es)  
+* Die Vibration beim Ausloesen funktioniert technisch, aber auch hier kann es im Emulator zu Einschraenkungen kommen  
+* Der Hintergrundprozess wurde mit (*AlarmManager*) und (*BroadcastReceiver*) umgesetzt. Ob der Alarm korrekt im Hintergrund ausgeloest wird, konnte aufgrund der Emulator-Einschraenkungen nicht vollstaendig ueberprueft werden. Die (*AlarmActivity*) ist implementiert, erscheint aber beim Ausloesen des Alarms im Test nicht zuverlaessig.  
+* Die volle Logik fuer das Deaktivieren des Alarms mit Aufgaben ist noch *nicht eingebaut*, aber vorbereitet
 
-### Noch nicht umgesetzt
-- Aufgaben zum Deaktivieren des Alarms  
-- Sensor Auswertung (Gyroskop, Licht, Naehe usw.)  
-- Navigation zu einem Aufgaben Screen  
-- Mikrofon und Kamera Funktionalitaet
+### *Noch nicht umgesetzt*
+* Aufgaben zum Deaktivieren des Alarms  
+* Sensor Auswertung (Gyroskop, Licht, Naehe usw.)  
+* Navigation zu einem Aufgaben Screen  
+* Mikrofon und Kamera Funktionalitaet
+  
+---
+## **Aenderungen gegenueber der Planung**
+
+
+- Ich habe schnell gemerkt: Design klappt, aber die technische Umsetzung war schwieriger als gedacht. Deshalb habe ich den Fokus auf das Design gelegt.  
+- Die geplanten Sensor-Challenges musste ich erstmal verschieben, damit die Alarmfunktion vollständig funktioniert.  
+- Navigation, Einstellungen und Challenges habe ich bewusst weggelassen, um die Hauptfunktion getestet und stabil abgeben zu können.  
+- Der Zeitaufwand war deutlich hoeher als erwartet. Deshalb habe ich klar priorisiert, was wirklich wichtig ist.  
+- Einige Funktionen wie Bewegungserkennung oder Matheaufgaben sind vorbereitet, aber noch nicht eingebaut.  
+- Die App wurde wie geplant mit Jetpack Compose umgesetzt. Manche Designelemente wie die analoge Uhr habe ich vereinfacht.  
+- Beim Ausloesen des Alarms wird ein eigenes Vollbild-Layout (AlarmActivity) mit Ton und Vibration angezeigt.  
+- Die AlarmActivity funktioniert im Emulator nicht zuverlaessig, wird aber technisch korrekt gestartet.  
+- Der Alarmton ist eine eigene .wav-Datei, eingebunden im Ordner `res/raw/`.
+
+
+---
 
 ## **Schichtentrennung**
 
@@ -46,15 +63,18 @@ Ich habe versucht, mich an die Regeln der Schichtentrennung zu halten:
 - Die UI enthaelt minimale Logik wie die Darstellung der Liste  
 - Eine ViewModel Schicht waere sinnvoll gewesen, habe ich aber aus Zeitgruenden nicht umgesetzt
 
+---
+
 ## **Versionsverwaltung**
 
 Ich habe versucht:
 
 - Jeder Commit enthaelt nur ein Thema
-- 
 - Commit-Beschreibungen sind verstaendlich formuliert  
 - Git wurde mit Android Studio verwendet  
 - Nachweis erfolgt durch Screenshots der Git-Historie
+
+---
 
 ## **Code Conventions**
 
@@ -64,6 +84,20 @@ Ich habe versucht, die Code Conventions einzuhalten:
 - Variablen und Methoden wurden englisch benannt  
 - PascalCase und camelCase wurden eingehalten  
 - Android Studio Linter war aktiviert
+  
+---
+
+## **Wie Linter starten**
+
+Ich habe `ktlint` in Android Studio verwendet. So kannst du ihn ausfuehren:
+
+*1. Terminal oeffnen im Projektordner*  
+```bash
+./gradlew ktlintCheck
+```
+2. Oder ueber Plugin Ktlint direkt in Android Studio installieren und ueber Rechtsklick ausfuehren
+
+---
 
 ## **Darstellung und Funktion**
 
