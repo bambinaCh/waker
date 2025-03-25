@@ -87,7 +87,7 @@ class AlarmActivity : Activity() {
         setContentView(layout)
 
         // ton starten
-        mediaPlayer = MediaPlayer.create(this, android.provider.Settings.System.DEFAULT_ALARM_ALERT_URI)
+        mediaPlayer = MediaPlayer.create(this, R.raw.alarm1)
         mediaPlayer?.isLooping = true
         mediaPlayer?.start()
 
