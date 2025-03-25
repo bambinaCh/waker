@@ -44,6 +44,7 @@ import android.content.Intent
 import android.os.Build
 import android.widget.Toast
 import android.provider.Settings
+import androidx.compose.foundation.layout.Row
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.ui.graphics.Color
 
