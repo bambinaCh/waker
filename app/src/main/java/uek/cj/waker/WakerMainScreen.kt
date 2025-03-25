@@ -212,6 +212,11 @@ fun AddAlarmDialog( // funktion für pop up wecker erstellen
                                 set(Calendar.HOUR_OF_DAY, timePickerState.hour) //stunden setzen
                                 set(Calendar.MINUTE, timePickerState.minute)  // Minute setzen
                                 set(Calendar.SECOND, 0) //sekunden auf 0
+
+
+                                if (before(Calendar.getInstance())) { // alles was schon vorbei ist wird verschoben auf morgen
+                                    add(Calendar.DAY_OF_YEAR, 1)
+                                }
                             }
 
                             alarmManager.setExactAndAllowWhileIdle(   // exakte Alarm setzen
