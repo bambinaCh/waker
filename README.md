@@ -1,173 +1,101 @@
-# 📱 Waker – Challenge Wecker
+# **Waker – Challenge Wecker**
+
 **Autorin:** Chaimaa Jarite  
 **Technologien:** Kotlin, Jetpack Compose, Material3
 
----
+## **Idee und Motivation**
 
-##  Idee & Motivation
+Waker ist eine native Android App, bei der man den Wecker nicht einfach per Knopfdruck ausschalten kann. Stattdessen muss man eine zufaellige Aufgabe absolvieren, zum Beispiel das Handy schuetteln oder eine Frage beantworten, um den Waker auszuschalten.
 
-Waker ist eine native Android-App, bei der man den Wecker nicht einfach per Knopfdruck ausschalten kann. Sondern muss man eine zufällige Challenge absolvieren (z. B. Handy schütteln oder eine Frage beantworten), umm den Waker abzustellen.
+Die Idee entstand aus einem persoenlichen Problem. Ich gewoehne mich schnell an Wecker, deshalb brauche ich taeglich eine neue Art aufzustehen, um wirklich wach zu werden.
 
-Die Idee entstand aus einem persönlichen Problem und zwar ichh gewöhne mich schnell an Weckern, deshalb brauche ich täglich eine neue Art aufzustehen um wirklich wach zu werden.
+## **Funktionen (geplant und umgesetzt)**
 
----
+### Umgesetzt
+- Alarm kann per Dialog erstellt werden  
+- Die gesetzten Alarme werden auf dem Hauptscreen angezeigt  
+- Aktuelle Uhrzeit wird als Standard im Dialog uebernommen  
+- TimePicker als digitale Eingabe vorhanden  
+- Alarmzeit wird im Format `HH:mm` dargestellt  
+- Benutzeroberflaeche mit Jetpack Compose gestaltet  
+- App Icon wurde erstellt und im Manifest eingebunden
 
-## Funktionen (geplant & umgesetzt)
+### Noch nicht umgesetzt
+- Aufgaben zum Deaktivieren des Alarms  
+- Sensor Auswertung (Gyroskop, Licht, Naehe usw.)  
+- Hintergrundprozesse fuer die Alarmfunktion  
+- Navigation zu einem Aufgaben Screen  
+- Mikrofon und Kamera Funktionalitaet
 
-###  Umgesetzt:
-- Alarm kann per Dialog erstellt werden.
-- Die gesetzten Alarme werden auf dem Hauptscreen angezeigt.
-- Aktuelle Uhrzeit wird als Default im Dialog übernommen.
-- TimePicker als digitale Eingabe vorhanden.
-- Alarmzeit wird im Format `HH:mm` dargestellt.
-- Benutzeroberfläche in Jetpack Compose gestaltet.
-- App-Icon wurde erstellt und in `AndroidManifest.xml` eingebunden.
+## **Schichtentrennung**
 
-### Noch nicht umgesetzt:
-- Challenges zum Deaktivieren des Alarms.
-- Sensor-Auswertung (Gyroskop, Licht, Nähe etc.).
-- Hintergrundprozesse für Alarmfunktion (AlarmManager, ForegroundService).
-- Navigation zu einem Challenge-Screen.
-- Mikrofon- & Kamera-Funktionalität.
+Ich habe versucht, mich an die Regeln der Schichtentrennung zu halten.
 
----
+- Das Modell (Alarm) befindet sich im separaten `model` Verzeichnis  
+- Die Benutzeroberflaeche (`WakerMainScreen`) ist getrennt vom Modell  
+- Die UI enthaelt minimale Logik wie die Darstellung der Liste  
+- Eine ViewModel Schicht waere sinnvoll gewesen, habe ich aber aus Zeitgruenden nicht umgesetzt
 
-## Testprotokoll
+## **Versionsverwaltung**
 
-Das Testen wurde auf dem **Android Emulator** durchgeführt, da kein physisches Android-Gerät verfügbar war.
+- Jeder Commit enthaelt nur ein Thema  
+- Commit Beschreibungen sind verstaendlich formuliert  
+- Git wurde mit Android Studio verwendet  
+- Nachweis erfolgt durch Screenshots der Git Historie
 
-**Testdurchführung:** Chaimaa El Jarite  
-**Siehe Tabelle „Testprotokoll“ weiter unten**
+## **Code Conventions**
 
----
+- Methoden ausserhalb der UI sind unter 30 Zeilen  
+- Variablen und Methoden wurden englisch benannt  
+- PascalCase und camelCase wurden eingehalten  
+- Android Studio Linter war aktiviert
 
-## Schichtentrennung
+## **Darstellung und Funktion**
 
-Ich habe versucht, dass die App die Regeln zur Schichtentrennung befolgt:
+Ich wollte mein Storyboard und Mockup exakt umsetzen, aber das war schwieriger als erwartet.  
+Ich habe zu viel Zeit ins Design investiert und zu wenig in die Logik.
 
-- **A.** Die App verwendet ein separates `model`-Package, in dem die `Alarm.kt` Klasse definiert ist.
-- **B.** Das Modell (`Alarm`) ist klar von der Benutzeroberfläche (`WakerMainScreen`) getrennt.
-- **C.** Einfache Logik wie das Speichern in einer Liste erfolgt noch direkt in der UI. Eine ViewModel Schicht wäre wünschenswert, habe ich aber aus Zeitgründen noch nicht implementiert.
+**Erkenntnis:**  
+Weniger waere mehr gewesen  
+Naechstes Mal liegt der Fokus auf Funktion statt Design  
+Ich setze mir realistischere Ziele
 
----
+## **Berechtigungen und Sensoren (geplant)**
 
-## Versionsverwaltung (SCM)
+- Mikrofon fuer Sprachaufgaben  
+- Kamera fuer Selfie oder QR Code  
+- Sensoren: Beschleunigung, Gyroskop, Licht, Naehe  
+- Hintergrundprozesse zum Ausloesen des Alarms
 
-- Jeder Commit enthält nur ein Thema → **atomar**
-- Alle Commits sind beschreibend formuliert
-- Historie dokumentiert (siehe Testprotokoll)
-- Screenshots der Git-Historie:
+## **Quellen und Tutorials**
 
----
+Ich habe viele Tutorials und Dokumentationen genutzt:
 
-## Code Conventions
+- https://developer.android.com/develop/ui/compose/components/time-pickers-dialogs  
+- https://developer.android.com/develop/ui/views/components/dialogs?hl=de  
+- https://developer.android.com/develop/ui/compose/quick-guides  
+- https://www.youtube.com/watch?v=V4IxattGNJY  
+- https://developer.android.com/develop/ui/compose/state  
+- https://developer.android.com/develop/ui/compose/components/fab  
+- https://blog.kotlin-academy.com/dialogs-in-jetpack-compose-2b7f72b14651  
+- https://www.youtube.com/watch?v=gtxWnkUPhwU  
+- https://stackoverflow.com/questions/75968843/jetpack-compose-format-date-string  
+- https://github.com/ChargeMap/Compose-NumberPicker  
+- https://github.com/github/gitignore/blob/main/Android.gitignore  
+- https://www.geeksforgeeks.org/time-picker-in-android-using-jetpack-compose/  
+- https://developer.android.com/reference/kotlin/androidx/compose/material3/ExperimentalMaterial3Api  
 
-- Methoden (ausser UI) sind unter 30 Zeilen
-- Variablen und Funktionen auf Englisch benannt
-- PascalCase/CamelCase beachtet
-- Jetpack Compose Linter aktiv (Android Studio integriert)
+## **Abgabe und Bewertung**
 
----
+**Erfuellte Rahmenbedingungen:**
 
-## Darstellung vs. Funktion
+- Mehrere Views verwendet  
+- Zustandsverwaltung vorhanden  
+- TimePicker mit aktueller Uhrzeit eingebaut  
+- Eigenes Icon eingebunden
 
-Ich habe versucht, meine Mockups und Storyboard möglichst genau umzusetzen.  
-Die Darstellung war mir wichtig, im Nachhinein hätte ich mich aber mehr auf die Logik konzentrieren sollen.
+**Noch offen:**
 
-**Learnings:**
-- Nicht alles, was einfach aussieht (z. B. Uhrzeit per Dialog wählen), ist technisch einfach.
-- Fokus sollte stärker auf Funktionalität liegen als auf Design.
-- Kleinere Ziele → bessere Umsetzung.
-
----
-
-## Berechtigungen & Sensoren
-
-In späteren Releases wurde ich gerne folgende Berechtigungen verwenden:
-- Mikrofon (Sprach-Challenges)
-- Kamera (Selfie zur Deaktivierung)
-- Sensoren: Beschleunigung, Gyroskop, Licht, Nähe
-- Hintergrundprozesse (Wecker-Funktion)
-
----
-
-## Tutorials & Quellen
-
-Ich habe viele Tutorials, Blogartikel und die offizielle Android-Dokumentation verwendet:
-- [Android Developer TimePicker](https://developer.android.com/develop/ui/compose/components/time-pickers-dialogs)
-- [Material3 AlertDialog](https://developer.android.com/develop/ui/views/components/dialogs?hl=de)
-- [Jetpack Compose Grundlagen](https://developer.android.com/develop/ui/compose/quick-guides)
- - General Infos:   https://www.youtube.com/watch?v=V4IxattGNJY
-* - listOf<Alarm>:   https://developer.android.com/develop/ui/compose/state?hl=de
-* - Floating Button: https://developer.android.com/develop/ui/compose/components/fab?hl=de
-*                    https://github.com/android/snippets/blob/a7117c0da26b85a9e005d700a7ae9dec859bb8bd/compose/snippets/src/main/java/com/example/compose/snippets/components/FloatingActionButton.kt#L61-L68
-*
-* - Scaffold:        https://developer.android.com/develop/ui/compose/quick-guides/content/create-scaffold?hl=de
-* - Exp. Material    https://developer.android.com/reference/kotlin/androidx/compose/material3/ExperimentalMaterial3Api
-* - Dialog:          https://developer.android.com/develop/ui/views/components/dialogs?hl=de
-*                    https://blog.kotlin-academy.com/dialogs-in-jetpack-compose-2b7f72b14651
-* - Al.Di. Button:   https://www.youtube.com/watch?v=gtxWnkUPhwU
-*                    https://blog.kotlin-academy.com/dialogs-in-jetpack-compose-2b7f72b14651
-*                    https://www.youtube.com/watch?v=XI35XG1rECs
-*                    https://www.youtube.com/watch?v=5u917TZkwvI
-* - Dialog Z-Auswhl: https://developer.android.com/develop/ui/compose/components/time-pickers-dialogs?hl=de
-* - Git Ignore:      https://github.com/github/gitignore/blob/main/Android.gitignore
-* - Number Picker:   https://stackoverflow.com/questions/75306878/how-can-i-make-a-number-picker-in-jetpack-compose
-*                    https://github.com/ChargeMap/Compose-NumberPicker
-* - Time:            https://www.geeksforgeeks.org/time-picker-in-android-using-jetpack-compose/
-*                    https://stackoverflow.com/questions/75968843/jetpack-compose-format-date-string
-*                    https://www.youtube.com/watch?v=EN9HtxsUe3A
-*                    https://stackoverflow.com/questions/73332937/what-would-be-the-most-lightweight-way-to-observe-current-time-for-a-an-androi
-*                    https://medium.com/mobile-innovation-network/date-formatting-in-compose-multiplatform-a-comprehensive-guide-bb059730afdc
-* - Time %           https://medium.com/@TippuFisalSheriff/creating-a-timer-screen-with-kotlin-and-jetpack-compose-in-android-f7c56952d599
-* - Divider:        https://developer.android.com/develop/ui/compose/components/divider?hl=de
----
-
-## Reflexion
-
-**A. SOLL (Absicht):**  
-Eine funktionierende Wecker-App mit Challenges und sensorbasierten Aufgaben entwickeln.
-
-**B. IST (Resultat):**  
-Grundstruktur, Alarmliste und TimePicker sind fertig. Dialog funktioniert. Challenges & AlarmManager fehlen noch.
-
-**C. Erkenntnis:**  
-Ich habe mir sehr viel vorgenommen. Nächstes Mal würde ich mit weniger Features starten und mich mehr auf die Funktion konzentrieren. Die UI war mir sehr wichtig, aber die Logik hätte Vorrang haben sollen.
-
----
-
-## Erfüllte Rahmenbedingungen 
-
-- Sensoren geplant (5 Punkte)
-- Mehrere Views (1 Punkt)
-- Zustandsverwaltung (1 Punkt)
-- Hintergrundlogik geplant (4 Punkte)
-- Eigenes App-Icon (1 Punkt)
-- Interaktion mit Mikrofon/Kamera vorgesehen (2 Punkte)
-
----
-
-## 🧾 Testprotokoll (Auszug)
-
-| Zeitpunkt            | Testfall                                               | Geprüft von      | Ergebnis                       |
-|----------------------|--------------------------------------------------------|------------------|--------------------------------|
-| 2025-03-25 01:00     | Spacer der Wakers erhöht                               | Chaimaa Jarite   | OK / Funktioniert wie erwartet |
-| 2025-03-25 00:55     | Fontgrösse der Wakers erhöht                            | Chaimaa Jarite   | OK / Funktioniert wie erwartet |
-| 2025-03-25 00:45     | Icon angepasst                                         | Chaimaa Jarite   | OK / Funktioniert wie erwartet |
-| ...                  | ... siehe Tabelle im Projekt (Protokoll als CSV)       |                  |                                |
-
----
-
-## Ausblick
-
-- Challenges mit Sensoren aktivieren
-- AlarmManager & Foreground Service integrieren
-- Daten persistent speichern (z. B. mit Room)
-- Challenge- und Einstellungen-Screens hinzufügen
-
----
-
-## Fazit
-
-Ich habe extrem viel gelernt – nicht nur über Jetpack Compose, sondern auch über Projektplanung, Fehlersuche und meine eigenen Limits.  
-Die App ist nicht perfekt, aber sie ist mein Werk – und ich bin stolz darauf.
+- Sensoren auslesen  
+- Hintergrundprozesse fuer die Weckerfunktion  
+- Mikrofon und Kamera Nutzung
