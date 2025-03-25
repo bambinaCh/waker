@@ -150,7 +150,7 @@ fun WakerMainScreen() {
                                 AlarmStorage.saveAlarms(context, alarms)
                             },
                             colors = ButtonDefaults.buttonColors(
-                                containerColor = Color(0xFFFFCDD2) // hellrot
+                                containerColor = Color(0xFFC18486) // rot
                             )
                         ) {
                             Text("X")
