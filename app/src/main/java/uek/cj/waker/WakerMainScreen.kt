@@ -116,7 +116,7 @@ fun WakerMainScreen() {
                     Text(
                         text = alarm.time,//input des alarms
                         fontSize = 40.sp)
-                    Spacer(modifier = Modifier.height(8.dp))
+                    Spacer(modifier = Modifier.height(60.dp))
                 }
             }
         }
