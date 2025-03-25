@@ -18,32 +18,39 @@ Die Idee entstand aus einem persoenlichen Problem. Ich gewoehne mich schnell an 
 - TimePicker als digitale Eingabe vorhanden  
 - Alarmzeit wird im Format `HH:mm` dargestellt  
 - Benutzeroberflaeche mit Jetpack Compose gestaltet  
-- App Icon wurde erstellt und im Manifest eingebunden
+- App Icon wurde erstellt und im Manifest eingebunden  
+- Alarme werden **persistent gespeichert** (SharedPreferences)  
+- **Hintergrundprozess mit AlarmManager** ist implementiert und funktioniert technisch (auch wenn die AlarmActivity noch nicht erscheint)  
+- **Aktuator (Vibration)** ist beim Erstellen eines Alarms eingebaut und funktioniert  
 
 ### Noch nicht umgesetzt
 - Aufgaben zum Deaktivieren des Alarms  
 - Sensor Auswertung (Gyroskop, Licht, Naehe usw.)  
-- Hintergrundprozesse fuer die Alarmfunktion  
+- Vollbildanzeige beim Alarm-Zeitpunkt  
 - Navigation zu einem Aufgaben Screen  
 - Mikrofon und Kamera Funktionalitaet
 
 ## **Schichtentrennung**
 
-Ich habe versucht, mich an die Regeln der Schichtentrennung zu halten.
+Ich habe versucht, mich an die Regeln der Schichtentrennung zu halten:
 
-- Das Modell (Alarm) befindet sich im separaten `model` Verzeichnis  
+- Das Modell (`Alarm`) befindet sich im separaten `model` Verzeichnis  
 - Die Benutzeroberflaeche (`WakerMainScreen`) ist getrennt vom Modell  
 - Die UI enthaelt minimale Logik wie die Darstellung der Liste  
-- Eine ViewModel Schicht waere sinnvoll gewesen, habe ich aber aus Zeitgruenden nicht umgesetzt
+- Eine ViewModel-Schicht waere sinnvoll gewesen, habe ich aber aus Zeitgruenden nicht umgesetzt
 
 ## **Versionsverwaltung**
 
+Ich habe versucht:
+
 - Jeder Commit enthaelt nur ein Thema  
-- Commit Beschreibungen sind verstaendlich formuliert  
+- Commit-Beschreibungen sind verstaendlich formuliert  
 - Git wurde mit Android Studio verwendet  
-- Nachweis erfolgt durch Screenshots der Git Historie
+- Nachweis erfolgt durch Screenshots der Git-Historie
 
 ## **Code Conventions**
+
+Ich habe versucht, die Code Conventions einzuhalten:
 
 - Methoden ausserhalb der UI sind unter 30 Zeilen  
 - Variablen und Methoden wurden englisch benannt  
@@ -95,7 +102,8 @@ Ich habe viele Tutorials, Blogartikel, StackOverflow-Antworten und die offiziell
 - [YouTube – Compose Dialog Tutorial](https://www.youtube.com/watch?v=XI35XG1rECs)
 - [YouTube – Dialogs in Compose](https://www.youtube.com/watch?v=5u917TZkwvI)
 - [YouTube – TimePicker Beispiel](https://www.youtube.com/watch?v=EN9HtxsUe3A)
- 
+- [StackOverflow – BroadcastReceiver UI](https://stackoverflow.com/questions/47742474/kotlin-call-a-function-to-update-ui-from-broadcastreceiver-onreceive)
+- [Android Developer – BroadcastReceiver](https://developer.android.com/develop/background-work/background-tasks/broadcasts?hl=de)
 
 ## **Abgabe und Bewertung**
 
@@ -104,10 +112,14 @@ Ich habe viele Tutorials, Blogartikel, StackOverflow-Antworten und die offiziell
 - Mehrere Views verwendet  
 - Zustandsverwaltung vorhanden  
 - TimePicker mit aktueller Uhrzeit eingebaut  
-- Eigenes Icon eingebunden
+- Eigenes Icon eingebunden  
+- Aktuator (Vibration bei Alarmerstellung) umgesetzt  
+- Hintergrundprozess mit AlarmManager implementiert  
+- Alarme werden persistent gespeichert (SharedPreferences)
 
 **Noch offen:**
 
 - Sensoren auslesen  
-- Hintergrundprozesse fuer die Weckerfunktion  
-- Mikrofon und Kamera Nutzung
+- AlarmActivity wird noch nicht automatisch geöffnet  
+- Mikrofon und Kamera Nutzung  
+- Aufgaben-Screen und Challenge-Erkennung beim Weckruf
