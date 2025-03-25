@@ -69,21 +69,33 @@ Ich setze mir realistischere Ziele
 
 ## **Quellen und Tutorials**
 
-Ich habe viele Tutorials und Dokumentationen genutzt:
+Ich habe viele Tutorials, Blogartikel, StackOverflow-Antworten und die offizielle Android-Dokumentation verwendet:
 
-- https://developer.android.com/develop/ui/compose/components/time-pickers-dialogs  
-- https://developer.android.com/develop/ui/views/components/dialogs?hl=de  
-- https://developer.android.com/develop/ui/compose/quick-guides  
-- https://www.youtube.com/watch?v=V4IxattGNJY  
-- https://developer.android.com/develop/ui/compose/state  
-- https://developer.android.com/develop/ui/compose/components/fab  
-- https://blog.kotlin-academy.com/dialogs-in-jetpack-compose-2b7f72b14651  
-- https://www.youtube.com/watch?v=gtxWnkUPhwU  
-- https://stackoverflow.com/questions/75968843/jetpack-compose-format-date-string  
-- https://github.com/ChargeMap/Compose-NumberPicker  
-- https://github.com/github/gitignore/blob/main/Android.gitignore  
-- https://www.geeksforgeeks.org/time-picker-in-android-using-jetpack-compose/  
-- https://developer.android.com/reference/kotlin/androidx/compose/material3/ExperimentalMaterial3Api  
+- [TimePicker in Jetpack Compose](https://developer.android.com/develop/ui/compose/components/time-pickers-dialogs)
+- [Material3 AlertDialog](https://developer.android.com/develop/ui/views/components/dialogs?hl=de)
+- [Jetpack Compose Quick Guides](https://developer.android.com/develop/ui/compose/quick-guides)
+- [Scaffold Composable](https://developer.android.com/develop/ui/compose/quick-guides/content/create-scaffold?hl=de)
+- [State Handling in Compose](https://developer.android.com/develop/ui/compose/state?hl=de)
+- [Floating Action Button in Compose](https://developer.android.com/develop/ui/compose/components/fab?hl=de)
+- [ExperimentalMaterial3Api Referenz](https://developer.android.com/reference/kotlin/androidx/compose/material3/ExperimentalMaterial3Api)
+- [Divider Komponente in Compose](https://developer.android.com/develop/ui/compose/components/divider?hl=de)
+- [AlertDialog API](https://developer.android.com/reference/kotlin/androidx/compose/material3/AlertDialog)
+- [Android.gitignore von GitHub](https://github.com/github/gitignore/blob/main/Android.gitignore)
+- [Number Picker Library](https://github.com/ChargeMap/Compose-NumberPicker)
+- [Beispiel-FAB Code](https://github.com/android/snippets/blob/a7117c0da26b85a9e005d700a7ae9dec859bb8bd/compose/snippets/src/main/java/com/example/compose/snippets/components/FloatingActionButton.kt)
+- [StackOverflow – Number Picker in Compose](https://stackoverflow.com/questions/75306878/how-can-i-make-a-number-picker-in-jetpack-compose)
+- [StackOverflow – Zeitformatierung in Compose](https://stackoverflow.com/questions/75968843/jetpack-compose-format-date-string)
+- [StackOverflow – aktuelle Zeit beobachten](https://stackoverflow.com/questions/73332937/what-would-be-the-most-lightweight-way-to-observe-current-time-for-a-an-androi)
+- [Kotlin Academy – Dialoge in Jetpack Compose](https://blog.kotlin-academy.com/dialogs-in-jetpack-compose-2b7f72b14651)
+- [Date Formatting in Compose Multiplatform](https://medium.com/mobile-innovation-network/date-formatting-in-compose-multiplatform-a-comprehensive-guide-bb059730afdc)
+- [Timer Screen mit Compose – Medium](https://medium.com/@TippuFisalSheriff/creating-a-timer-screen-with-kotlin-and-jetpack-compose-in-android-f7c56952d599)
+- [GeeksForGeeks – TimePicker in Compose](https://www.geeksforgeeks.org/time-picker-in-android-using-jetpack-compose/)
+- [YouTube – Jetpack Compose Einführung](https://www.youtube.com/watch?v=V4IxattGNJY)
+- [YouTube – AlertDialog in Compose](https://www.youtube.com/watch?v=gtxWnkUPhwU)
+- [YouTube – Compose Dialog Tutorial](https://www.youtube.com/watch?v=XI35XG1rECs)
+- [YouTube – Dialogs in Compose](https://www.youtube.com/watch?v=5u917TZkwvI)
+- [YouTube – TimePicker Beispiel](https://www.youtube.com/watch?v=EN9HtxsUe3A)
+ 
 
 ## **Abgabe und Bewertung**
 
