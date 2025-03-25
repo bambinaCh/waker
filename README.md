@@ -158,16 +158,7 @@ Ich habe mir sehr viel vorgenommen. Nächstes Mal würde ich mit weniger Feature
 
 ---
 
-## 🗂 Ordnerstruktur (Auszug)
-/app └── java/uek/cj/waker ├── model/Alarm.kt ├── WakerMainScreen.kt └── MainActivity.kt /res ├── mipmap/ic_launcher.png ├── layout/ └── values/
-
-yaml
-Kopieren
-Bearbeiten
-
----
-
-## 🚀 Ausblick
+## Ausblick
 
 - Challenges mit Sensoren aktivieren
 - AlarmManager & Foreground Service integrieren
@@ -176,7 +167,7 @@ Bearbeiten
 
 ---
 
-## 🔚 Fazit
+## Fazit
 
 Ich habe extrem viel gelernt – nicht nur über Jetpack Compose, sondern auch über Projektplanung, Fehlersuche und meine eigenen Limits.  
 Die App ist nicht perfekt, aber sie ist mein Werk – und ich bin stolz darauf.
