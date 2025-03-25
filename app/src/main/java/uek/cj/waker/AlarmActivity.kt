@@ -41,10 +41,7 @@ class AlarmActivity : Activity() {
         layout.addView(titleView)
         layout.addView(timeView)
 
-        /*
-        setContentView(TextView(this).apply {
-            text = "Waker!"
-            textSize = 32f
-        })*/
+
+        setContentView(layout)
     }
 }
