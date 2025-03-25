@@ -10,11 +10,19 @@ class AlarmActivity : Activity() {
         super.onCreate(savedInstanceState)
 
 
-        window.addFlags(
+        window.addFlags(  // volbild fenster
             WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON or
                     WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED or
                     WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON
         )
+
+
+        val alarmTime = intent.getStringExtra("alarm_time") ?: "Jetzt" // Intent zeit holen sonst default jetzt
+
+        // Layout erstellen
+        val layout = LinearLayout(this).apply {
+
+        }
 
         setContentView(TextView(this).apply {
             text = "Waker!"
