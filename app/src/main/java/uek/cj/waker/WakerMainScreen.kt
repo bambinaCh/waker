@@ -182,8 +182,14 @@ fun AddAlarmDialog( // funktion für pop up wecker erstellen
                     val time = "%02d:%02d".format(timePickerState.hour, timePickerState.minute) //Alarm value 2 stellig formatiert
                 onConfirm(time) //neue zeit an haupt screen
 
-
-
+                    val alarmManager = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager // system service holen
+                    val intent = Intent(context, AlarmReceiver::class.java) // intent für AlarmReceiver erstellen
+                    val pendingIntent = PendingIntent.getBroadcast( // pending intent
+                        context,
+                        time.hashCode(), //code für jede uhrzeit
+                        intent,
+                        PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE // flags für security und und aktualisierung
+                    )
 
                 onDismiss() //dialog schliessen
             }) {
