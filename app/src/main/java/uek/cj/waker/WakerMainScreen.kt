@@ -195,23 +195,6 @@ fun AddAlarmDialog( // funktion für pop up wecker erstellen
                         PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE // flags für security und und aktualisierung
                     )
 
-
-
-                    val calendar = Calendar.getInstance().apply {   //zeit  setzen
-                        set(Calendar.HOUR_OF_DAY, timePickerState.hour) // stunde setzen
-                        set(Calendar.MINUTE, timePickerState.minute) // minute
-                        set(Calendar.SECOND, 0) // 0 sekunden
-                    }
-
-
-                    alarmManager.setExactAndAllowWhileIdle( // alarm immer ausloesen
-                        AlarmManager.RTC_WAKEUP, // notification zu gerät
-                        calendar.timeInMillis, // zeitpunkt in Millisekunden
-                        pendingIntent // PendingIntent wird bei alarm ausgelöst
-                    )
-
-
-
                     onDismiss() //dialog schliessen
             }) {
                 Text("OK")
