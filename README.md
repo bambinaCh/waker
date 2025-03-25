@@ -1,7 +1,7 @@
 # **Waker – Challenge Wecker**
 
 **Autorin:** Chaimaa Jarite  
-**Technologien:** Kotlin, Jetpack Compose, Material3
+**Technologien:** Kotlin, Jetpack Compose, Material3  
 **Pages:** [Waker Pages Site](https://bambinach.github.io/WakerSite/)
 
 ## **Idee und Motivation**
