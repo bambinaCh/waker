@@ -46,7 +46,9 @@ import android.widget.Toast
 import android.provider.Settings
 import androidx.compose.foundation.layout.Row
 import androidx.compose.material3.ButtonDefaults
-import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.Colorimport androidx.compose.material3.Switch
+import androidx.compose.material3.SwitchDefaults
+
 
 
 /* Quelle
@@ -147,6 +149,30 @@ fun WakerMainScreen() {
                             text = alarm.time,//input des alarms
                             fontSize = 40.sp
                         )
+
+                        //On oOff stich dank chatpgt
+                        androidx.compose.material3.Switch(
+                            checked = isChecked,
+                            onCheckedChange = { checked ->
+                                isChecked = checked
+
+                                // Alarmliste updaten mit neuem Status
+                                alarms = alarms.map {
+                                    if (it.time == alarm.time) it.copy(isActive = checked) else it
+                                }
+
+                                AlarmStorage.saveAlarms(context, alarms)
+                            },
+                            colors = androidx.compose.material3.SwitchDefaults.colors(
+                                checkedThumbColor = Color(0xFF9B5DE5),     // violett (an)
+                                uncheckedThumbColor = Color.LightGray,     // grau (aus)
+                                checkedTrackColor = Color(0xFFD6BBF5),
+                                uncheckedTrackColor = Color(0xFFCCCCCC)
+                            )
+                        )
+                    }
+
+
                         Spacer(modifier = Modifier.height(20.dp))
                         Button(
                             onClick = {
