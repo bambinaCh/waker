@@ -50,7 +50,8 @@ Ich habe versucht, mich an die Regeln der Schichtentrennung zu halten:
 
 Ich habe versucht:
 
-- Jeder Commit enthaelt nur ein Thema  
+- Jeder Commit enthaelt nur ein Thema
+- 
 - Commit-Beschreibungen sind verstaendlich formuliert  
 - Git wurde mit Android Studio verwendet  
 - Nachweis erfolgt durch Screenshots der Git-Historie
@@ -130,3 +131,11 @@ Ich habe viele Tutorials, Blogartikel, StackOverflow-Antworten und die offiziell
 - AlarmActivity funktioniert nur teilweise und nicht zuverlässig auf Emulator  
 - Mikrofon und Kamera Nutzung  
 - Aufgaben-Screen und Challenge-Erkennung beim Weckruf
+
+## Git Nachweise
+
+![Git Verlauf - 100 Commits](<img width="592" alt="100_Commits" src="https://github.com/user-attachments/assets/46702a1f-8d0a-4f00-b5ee-94ad47447909" />)  
+![Git Verlauf - Erste Commits]( <img width="485" alt="erste_Commits" src="https://github.com/user-attachments/assets/f03b44af-6d17-4ef0-a80f-82c0a4e38ba8" /> )
+![Git Verlauf - Letzte Commits](<img width="493" alt="letzte_Commits" src="https://github.com/user-attachments/assets/9c4225a1-0044-40e4-8f59-fecb9f5929e5" />)
+
+
