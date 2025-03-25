@@ -29,7 +29,8 @@ class AlarmReceiver : BroadcastReceiver() {
 
         val fullScreenIntent = Intent(context, AlarmActivity::class.java).apply {
             flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP
+            putExtra("alarm_time", "Jetzt!") // zeit des ausgelöste alarm
         }
-        context.startActivity(fullScreenIntent) //vollbildmodus
+        context.startActivity(fullScreenIntent) // vollbildmodus
     }
 }
