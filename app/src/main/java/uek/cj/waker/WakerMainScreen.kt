@@ -8,8 +8,10 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.AccessTime
@@ -24,6 +26,7 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.AlertDialog
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.TimePicker
 import androidx.compose.material3.rememberTimePickerState
 import androidx.compose.runtime.Composable
@@ -66,6 +69,7 @@ import java.util.Calendar
 *                    https://stackoverflow.com/questions/73332937/what-would-be-the-most-lightweight-way-to-observe-current-time-for-a-an-androi
 *                    https://medium.com/mobile-innovation-network/date-formatting-in-compose-multiplatform-a-comprehensive-guide-bb059730afdc
 * - Time %           https://medium.com/@TippuFisalSheriff/creating-a-timer-screen-with-kotlin-and-jetpack-compose-in-android-f7c56952d599
+* - Divider:        https://developer.android.com/develop/ui/compose/components/divider?hl=de
 * */
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -103,20 +107,22 @@ fun WakerMainScreen() {
         }
     ) { innerPadding -> //Hauptinhalt (liste der Wakers)
 
-        Column( //composable funktion ui element
+        LazyColumn ( //composable funktion scrollbare liste
             modifier = Modifier //jet compose funktion
                 .fillMaxSize() //attribute
                 .padding(16.dp),
-            verticalArrangement = Arrangement.Center //jet compose funktion
         ) {
             if (alarms.isEmpty()) { // IF ELSE funktion um alarms zu rufen
-                Text("Keine Wakers gesetzt.")
+                item {
+                    Text("Keine Wakers gesetzt.")
+                }
             } else {
-                for (alarm in alarms) { //for lop für jede alarm
+                items(alarms) { alarm ->//for lop für jede alarm
                     Text(
                         text = alarm.time,//input des alarms
-                        fontSize = 40.sp)
-                    Spacer(modifier = Modifier.height(60.dp))
+                        fontSize = 40.sp
+                    )
+                    HorizontalDivider(thickness = 2.dp)
                 }
             }
         }

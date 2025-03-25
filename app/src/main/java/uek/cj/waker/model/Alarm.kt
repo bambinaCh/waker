@@ -1,5 +1,5 @@
 package uek.cj.waker.model
 
-class Alarm (
+data class Alarm (
     val time: String
 )
