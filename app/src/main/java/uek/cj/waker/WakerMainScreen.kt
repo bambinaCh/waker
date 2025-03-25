@@ -183,8 +183,12 @@ fun AddAlarmDialog( // funktion für pop up wecker erstellen
         confirmButton = { //jet compose funktion um alarm zu speichern
             Button(
                 onClick = {
-                    val time = "%02d:%02d".format(timePickerState.hour, timePickerState.minute) //Alarm value 2 stellig formatiert
-                onConfirm(time) //neue zeit an haupt screen
+                    val time = "%02d:%02d".format(
+                        timePickerState.hour, //Alarm value 2 stellig formatiert
+                        timePickerState.minute
+                    )
+
+                    onConfirm(time) //neue zeit an haupt screen
 
                     val alarmManager = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager // system service holen
                     val intent = Intent(context, AlarmReceiver::class.java) // intent für AlarmReceiver erstellen
@@ -202,8 +206,14 @@ fun AddAlarmDialog( // funktion für pop up wecker erstellen
                     }
 
 
+                    alarmManager.setExactAndAllowWhileIdle(
+                        AlarmManager.RTC_WAKEUP,
+                        calendar.timeInMillis,
+                        pendingIntent
+                    )
                     onDismiss() //dialog schliessen
-            }) {
+                }
+            ) {
                 Text("OK")
             }
         },
