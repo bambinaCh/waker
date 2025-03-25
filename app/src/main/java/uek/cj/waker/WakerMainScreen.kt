@@ -33,6 +33,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.Alignment
+import androidx.compose.ui.platform.LocalContext
 import uek.cj.waker.model.Alarm
 import uek.cj.waker.ui.theme.WakerTheme
 import java.util.Calendar
@@ -162,6 +163,8 @@ fun AddAlarmDialog( // funktion für pop up wecker erstellen
     onConfirm: (String) -> Unit
 ) {
     val currentTime = Calendar.getInstance() //value zeigt aktuelle zeit. Compose funktion
+    val context = LocalContext.current // um AlarmManager zu nutzen
+
 
     val timePickerState = rememberTimePickerState( //value auswahl Inpput für alarm. Compose funktion
         initialHour = currentTime.get(Calendar.HOUR_OF_DAY),
