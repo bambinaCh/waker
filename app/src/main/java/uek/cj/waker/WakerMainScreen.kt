@@ -148,6 +148,7 @@ fun WakerMainScreen() {
                 onConfirm = { // compose funktion damit Dialog auf popt
                     newTime -> // neue alarm
                     alarms = alarms + Alarm(newTime) // neue alarm speichert
+                    AlarmStorage.saveAlarms(context, alarms) // alarms im Context speichern
                     showDialog = false // nach der neue alarm schliesst der Dialog
                 }
             )
