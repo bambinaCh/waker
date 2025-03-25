@@ -24,6 +24,7 @@ Die Idee kamm aus einem persoenlichen Problem. Ich gewoehne mich schnell an Weck
 * *Hintergrundprozess mit AlarmManager* ist eingebaut (Alarm wird technisch korrekt geplant)  
 * *Aktuator (Vibration)* ist beim Erstellen und Ausloesen eines Alarms implementiert  
 * *Vollbildanzeige beim Alarm-Zeitpunkt* ist als `AlarmActivity` vorhanden  
+* Jeder Alarm hat jetzt einen *Löschen-Button*, um gezielt entfernt zu werden
 
 ### *Hinweise und Einschraenkungen*
 * AlarmActivity oeffnet sich nicht automatisch beim Ausloesen des Alarms im Emulator (vermutlich wegen Emulator-Beschraenkungen, auf echten Geraeten funktioniert es)  
