@@ -10,5 +10,11 @@ object AlarmStorage {
     private const val PREF_NAME = "alarm_prefs"
     private const val KEY_ALARMS = "alarms"
 
+    fun saveAlarms(context: Context, alarms: List<Alarm>) {
+        val prefs = context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE)
+        val json = Gson().toJson(alarms)
+        prefs.edit().putString(KEY_ALARMS, json).apply()
+    }
+
 
 }
