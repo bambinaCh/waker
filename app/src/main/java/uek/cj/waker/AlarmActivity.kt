@@ -13,6 +13,8 @@ import android.os.Vibrator
 import android.os.VibrationEffect
 import android.widget.Button
 import android.widget.Toast
+import android.os.Build
+
 
 /*
 * Quellen:
