@@ -2,7 +2,9 @@ package uek.cj.waker
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -118,10 +120,12 @@ fun WakerMainScreen() {
                 }
             } else {
                 items(alarms) { alarm ->//for lop für jede alarm
+                    Spacer(modifier = Modifier.height(20.dp))
                     Text(
                         text = alarm.time,//input des alarms
                         fontSize = 40.sp
                     )
+                    Spacer(modifier = Modifier.height(20.dp))
                     HorizontalDivider(thickness = 2.dp)
                 }
             }
