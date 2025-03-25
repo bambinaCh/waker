@@ -112,7 +112,7 @@ fun WakerMainScreen() {
                 Text("Keine Wakers gesetzt.")
             } else {
                 for (alarm in alarms) { //for lop für jede alarm
-                    Text("alarm.time") //input des alarms
+                    Text(alarm.time) //input des alarms
                     Spacer(modifier = Modifier.height(8.dp))
                 }
             }
